@@ -13,9 +13,16 @@ export class ItemGaleriaComponent implements OnInit {
   //habilitamos que pueda ingresar un nombre del item
   nombreItem;
 
+  @Input()
+  textoBoton;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  alertar(){
+    alert('AUXILIO ME DESMAYO'+ this.nombreItem)
   }
 
 }
