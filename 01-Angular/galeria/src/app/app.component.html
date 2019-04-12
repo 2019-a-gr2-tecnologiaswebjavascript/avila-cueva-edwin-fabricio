@@ -1,4 +1,9 @@
-<h1 class="rojo" >TITULO: {{title}}</h1>
-<app-item-galeria nombreItem="el parametro que paso desde la etiqueta" textoBoton="TEXTOBOTON 1"></app-item-galeria>
-<app-item-galeria nombreItem="carnitas" textoBoton="CARNITAS"></app-item-galeria>
-<app-item-galeria nombreItem="papaitas" textoBoton="PAPITAS"></app-item-galeria>
+<h1 [class]="color" (click)="cambioChela()">TITULO: {{title}}</h1>
+<app-item-galeria *ngFor="let flor of arregloFloresJs"
+[textoBoton]="flor.nombre" 
+[nombreItem]="flor.descripcion"
+(cambioChela)="cambioChela($event)"
+(cambioCerveza)="cambioCerveza($event)"
+>
+
+</app-item-galeria>
