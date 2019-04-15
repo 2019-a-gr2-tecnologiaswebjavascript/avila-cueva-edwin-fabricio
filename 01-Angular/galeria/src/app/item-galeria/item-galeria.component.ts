@@ -9,9 +9,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ItemGaleriaComponent implements OnInit {
 
   title = 'Licoreria';
-
-  @Input()
+  
   //habilitamos que pueda ingresar un nombre del item
+  @Input()
   nombreItem;
 
   @Input()
@@ -19,14 +19,11 @@ export class ItemGaleriaComponent implements OnInit {
 
   @Output()
   cambioChela:EventEmitter<boolean> = new EventEmitter()
-
   
   @Output()
   cambioCerveza:EventEmitter<boolean> = new EventEmitter()
-
-
   
-  url = "https://media.canalnet.tv/2018/08/Homero-Simpson.jpeg"
+  url = "http://www.dna-autoparts.com/23121-thickbox_default/bielas-forjadas-eagle-para-sr20det.jpg"
 
   notas = [1,2,3,4,5,6,7,8,9,10];
 
@@ -36,24 +33,24 @@ export class ItemGaleriaComponent implements OnInit {
   }
 
   alertar(){
-    alert('AUXILIO ME DESMAYO'+ ' '+ this.nombreItem)
+    alert('Auxilio me desmayo: '+this.nombreItem)
   }
 
   alertarBlur(){
-    alert('Alerta BLUR');
+    alert('Alertar blur');
   }
 
   cambiarImagen(){
     //usar const
     //nunca vamos a usar VAR
     //el LET permite deja reasignar 
-    const marge="https://files.lafm.com.co/assets/public/styles/image_631x369/public/margee.jpg?itok=HHB6Qz23";
-    const homero="https://media.canalnet.tv/2018/08/Homero-Simpson.jpeg";
-    if(this.url === homero){
-      this.url = marge; 
+    const cervezas="http://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpg";
+    const chelas="http://www.dna-autoparts.com/23121-thickbox_default/bielas-forjadas-eagle-para-sr20det.jpg";
+    if(this.url === cervezas){
+      this.url = chelas; 
       this.cambioChela.emit(true);
     }else{
-      this.url = homero;
+      this.url = cervezas;
       this.cambioCerveza.emit(true);
     }
     

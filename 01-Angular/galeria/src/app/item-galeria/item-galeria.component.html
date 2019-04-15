@@ -1,14 +1,16 @@
 <h1 class="rojo" >Item galeria - {{title}}</h1>
+
 <!--{{}} INTERPOLACION-->
 <p>Nombre:{{nombreItem}}</p>
-<!--EVENT BINDING()-> SE VA A ESCUCHAR EL EVENTO-->
+
+<!--EVENT BINDING() => SE VA A ESCUCHAR EL EVENTO-->
 <button  (click)="alertar()">{{textoBoton}}</button>
 
-<!-- [] Property Binding -> Propiedades/Atributos-->
+<!-- [] Property Binding => Propiedades/Atributos-->
 <img [src]="url" 
 alt="" (click)="cambiarImagen()">
 
-<!--Directiva -> *ngFor let y el nombre de la iteracioón --> 
+<!--Directiva => *ngFor=(let) el nombre de la iteración en singular (of) nombre del arreglo --> 
 <p *ngFor="let nota of notas">
     {{nota}}
 </p>
