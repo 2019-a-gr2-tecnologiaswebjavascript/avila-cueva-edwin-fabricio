@@ -1,9 +1,21 @@
-<h1 [class]="color" (click)="cambioChela()">TITULO: {{title}}</h1>
-<app-item-galeria *ngFor="let flor of arregloFloresJs"
-[textoBoton]="flor.nombre" 
-[nombreItem]="flor.descripcion"
-(cambioChela)="cambioChela($event)"
-(cambioCerveza)="cambioCerveza($event)"
->
+<h1 [class]="claseTitulo" (click)="cambioChela()">TITULO: {{title}}</h1>
 
-</app-item-galeria>
+<pre>
+    {{_carritoService.carritoCompras | json}}
+</pre>
+
+<button (click)="mostrar(true)">Mostrar</button>
+<button (click)="mostrar(false)">Ocultar</button>
+
+<div [hidden]="!estaMostrando"><!--el *ngIf  es ta destruyendo-->
+    <app-item-galeria 
+    *ngFor="let flor of arregloFloresJs"
+    [titulo]="flor.titulo"
+    [textoBoton]="flor.nombre"
+    [notas]="flor.notas" 
+    [nombreItem]="flor.descripcion"
+    (cambioChela)="cambioChela($event)"
+    (cambioCerveza)="cambioCerveza($event)"
+    >
+    </app-item-galeria>
+</div>
