@@ -21,7 +21,8 @@ export class AppComponent {
       descripcion:"A lo bestia",
       notas:[
         'Hot Dog',
-        'Hamburguesas'
+        'Hamburguesas',
+        'Papitas'
       ]
     },
     {
@@ -30,7 +31,7 @@ export class AppComponent {
       descripcion:"Gorditas",
       notas:[
         'Papitas',
-        'Empanadas'
+        'Empanadas',
       ]
     },
     {
@@ -39,7 +40,8 @@ export class AppComponent {
       descripcion:"Cheveres",
       notas:[
         'Motes',
-        'Fritadas'
+        'Fritadas',
+        'Papitas'
       ]
     },
   ]

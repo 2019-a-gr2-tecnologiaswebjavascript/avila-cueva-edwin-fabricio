@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
-
+import {ItemCarritoCompras} from '../interfaces/item-carrito-compras'
 
 @Component({
   selector: 'app-item-galeria',
@@ -38,7 +38,8 @@ export class ItemGaleriaComponent implements OnInit , OnDestroy {
   //inyectar servicios en componentes y servicios 
   //compartir un servicio en varios componentes 
   //SERVICIOS -> COMPARTIDOS-> USAR VARIOS SERVICIOS EN UN COMPONENTE  
-  constructor(private readonly _carritoService:CarritoService) { }
+  constructor(private readonly _carritoService:CarritoService) {
+  }
 
   alertar(){
     alert('Auxilio me desmayo: '+this.nombreItem)
@@ -72,18 +73,28 @@ export class ItemGaleriaComponent implements OnInit , OnDestroy {
     console.log("'Termino'");
   }
 
-  agregarCarrito(valorCarrito){
-    const itemCarrito={
+  agregarCarrito(valorCarrito:string){
+    const itemCarrito:ItemCarritoCompras={
       valor:valorCarrito,
-      nombreTienda: this.titulo
+      nombreTienda: this.titulo,
+      fechaCompra: new Date()
     }
+    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(itemCarrito);
     //this._carritoService.carritoCompras.splice(0,0,itemCarrito);
-    this._carritoService.agregarItemCarrito(itemCarrito);
-  
+    //this._carritoService.agregarItemCarrito(itemCarrito);
+    console.log (respuestaCarrito);
   }
 
 }
 
+
+/*
+class CarritoCompraClase implements CarritoCompraClaseInterface{
+  valor:string;
+  nombreTienda:string;
+  fechaCompra?:Date;
+}
+*/
 /*
 Deber
 Problema cuando agregue un item al arreglo, debo de guardar su cantidad.
@@ -92,6 +103,7 @@ id -> valor
 1)verificar si existe ese "item" el valor 
   1.1 Existe 
       Aumentamos el contador
+      Existe?->si esxiste debemos de  buscar en el arreglo
   1.2  No existe
       creamos el contador y lo seteamos en 1
 

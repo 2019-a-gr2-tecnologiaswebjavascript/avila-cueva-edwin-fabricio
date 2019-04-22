@@ -1,30 +1,101 @@
 import { Injectable } from '@angular/core';
+import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
 
 @Injectable()
 export class CarritoService{
-    //carritoCompras=[];
-    cantidadHotdog=1;
-    cantidadHamburguesas=1;
-    cantidadPapitas=1;
-    cantidadEmpanadas=1;
-    cantidadMotes=1;
-    cantidadFritadas=1;
+    carritoCompras:ItemCarritoCompras[] = [];
     
-    agregarItemCarrito(itemCarrito){
-        if(itemCarrito.valor === 'Hot Dog'){
-            itemCarrito['cantidad'] = this.cantidadHotdog++;   
-        }else if(itemCarrito.valor === 'Hamburguesas'){
-            itemCarrito['cantidad'] = this.cantidadHamburguesas++;
-        }else if(itemCarrito.valor === 'Papitas'){
-            itemCarrito['cantidad'] = this.cantidadPapitas++;
-        }else if(itemCarrito.valor === 'Empanadas'){
-            itemCarrito['cantidad'] = this.cantidadEmpanadas++;
-        }else if(itemCarrito.valor === 'Motes'){
-            itemCarrito['cantidad'] = this.cantidadMotes++;
-        }else if(itemCarrito.valor === 'Fritadas'){
-            itemCarrito['cantidad'] = this.cantidadFritadas++;
+    agregarCarritoDeCompras(itemCarrito:ItemCarritoCompras):ItemCarritoCompras[]{
+        const identificador = itemCarrito.valor;
+        let indiceItem = -1;
+        const existeElItem = this.carritoCompras.some(
+            (item:ItemCarritoCompras, indice)=>{
+                if(item.valor == identificador){
+                    indiceItem = indice;
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        )
+        if(existeElItem){
+            this.anadirAlContador(indiceItem);
+           
+        }else{
+            this.anadirAlCarrito(itemCarrito);
         }
-        console.log(itemCarrito);
+        console.log('Se añadio al carrito',itemCarrito);
+        return this.carritoCompras;
     }
- 
+
+    private anadirAlContador(indice:number){
+        this.carritoCompras[indice].cantidad++;
+    }
+    private anadirAlCarrito(item:ItemCarritoCompras){
+        item.cantidad = 1;
+        this.carritoCompras.splice(0,0,item);
+    }
 }
+
+
+/*
+const respuestaFind = [1,2,3,4].find(
+    (valor:number):boolean => {
+        return valor == 3; // Expresion ! a < b b==c 
+    });
+    console.log(respuestaFind);
+
+//SOME -> OR -> si es que almenos existe uno 
+const respuestaSome = [1,2,3,4].some(//devuelve un booleano
+    (valor:number):boolean => {
+        return valor == 3; // HAY ALGUN 3?
+    });
+    console.log(respuestaSome);
+
+//EVERY TODOS SON 3 ? -> si no se cumple en todas las iteracione ses falso
+const respuestaEvery = [1,2,3,4].every(//devuelve un booleano
+    (valor:number):boolean => {
+        return valor > 0; // Todos son mayor que 0?
+    });
+    console.log(respuestaEvery);
+
+
+
+FOR EACH
+const respuesta = [1,2,3,4].forEach( //devuelve undefined 
+    (valor:number) => {
+        console.log('valor: ',valor);
+        if (valor==1){
+            console.log('Te encontre 1 !!');
+        }
+    }    
+);
+console.log(respuesta);
+
+
+OPCION 2 
+[1,2,3,4].forEach(
+    function (valor,indice,arreglo){
+        console.log('valor: ',valor);
+        if (valor==1){
+            console.log('Te encontre 1 !!');
+        }
+    }    
+);
+
+OPCION 1
+function busqueda(valor,indice,arreglo){
+    console.log('valor: ',valor);
+    if (valor==1){
+        console.log('Te encontre 1 !!');
+    }
+
+}
+
+//////////////////////////
+Metodos para buscar
+*FIND 
+    [1,2,3].find()
+
+
+*/
