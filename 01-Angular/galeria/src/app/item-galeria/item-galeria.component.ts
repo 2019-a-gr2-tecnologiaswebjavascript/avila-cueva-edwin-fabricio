@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
 
 
@@ -7,7 +7,7 @@ import { CarritoService } from '../servicios/carrito/carrito.service';
   templateUrl: './item-galeria.component.html',
   styleUrls: ['./item-galeria.component.css']
 })
-export class ItemGaleriaComponent implements OnInit,OnDestroy {
+export class ItemGaleriaComponent implements OnInit , OnDestroy {
 
   title = 'Licoreria';
 
@@ -36,6 +36,7 @@ export class ItemGaleriaComponent implements OnInit,OnDestroy {
   //Injection -> que
   //Injection de dependecias
   //inyectar servicios en componentes y servicios 
+  //compartir un servicio en varios componentes 
   //SERVICIOS -> COMPARTIDOS-> USAR VARIOS SERVICIOS EN UN COMPONENTE  
   constructor(private readonly _carritoService:CarritoService) { }
 
@@ -64,8 +65,9 @@ export class ItemGaleriaComponent implements OnInit,OnDestroy {
   }
   ngOnInit() {
     console.log("'Empezo'");
-    console.log(this._carritoService.carritoCompras);
+    //console.log(this._carritoService.carritoCompras);
   }
+  
   ngOnDestroy() {
     console.log("'Termino'");
   }
@@ -75,11 +77,27 @@ export class ItemGaleriaComponent implements OnInit,OnDestroy {
       valor:valorCarrito,
       nombreTienda: this.titulo
     }
-    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
-    console.log(this._carritoService.carritoCompras);
+    //this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+    this._carritoService.agregarItemCarrito(itemCarrito);
+  
   }
 
 }
+
+/*
+Deber
+Problema cuando agregue un item al arreglo, debo de guardar su cantidad.
+En el item nos hace falta la cantidad.
+id -> valor 
+1)verificar si existe ese "item" el valor 
+  1.1 Existe 
+      Aumentamos el contador
+  1.2  No existe
+      creamos el contador y lo seteamos en 1
+
+
+*/
+
 
 /*  ciclo de vida del componente
 ngOnInit -> onInit -> va a empezar como una nueva instancia 
@@ -106,14 +124,15 @@ Morir
 - -> Servicio
 
 #ModuloPrincipal (AppModule)--> que contiene a todos
-  *CompnentePrincipal (AppComponent)
+  *ComponentePrincipal (AppComponent)
 .......................................
-Tenemos otro modulo
+Tenemos otro modulo fuera del proyecto
 
 #ModuloNotas (NotasModule)
   *TablaMostrarMateria
-    ¿Qué necisitamos que nos mande?
-    _ [] notasPorMateria ->
+    ¿Qué necisitamos que nos mande desde afuera?
+    _ [] notasPorMateria ->PropetyBinding-> Adentro la materia, la nota
+    USAR EL MISMO BOTON PERO DIFERENTE PROPOSITO
     Administrador :cuando demos click a las notas se le envia un correo al papá 
     Estudiante : da en el boton y entra a redes sociales
     _ [] nombreBoton
@@ -121,10 +140,11 @@ Tenemos otro modulo
     _ () ejecutoAccion
   
   *ListarMaterias
-    _() seleccionoMateria
+    ->el mismo busque las materias  
+    _ () seleccionoMateria
 
 
-  [Javascript] -> ()-> seleccionoJavaScript
+  [Javascript] -> emitir ()-> seleccionoJavaScript
 
 
 
