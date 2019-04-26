@@ -32,6 +32,7 @@ export class AppComponent {
       notas:[
         'Papitas',
         'Empanadas',
+        'Hamburguesas'
       ]
     },
     {
