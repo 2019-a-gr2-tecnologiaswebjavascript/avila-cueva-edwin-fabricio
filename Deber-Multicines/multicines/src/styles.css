@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+/*.contenedor{
+  padding: espacio entre el contenido y el borde
+    border: es el border del elemento
+    margin: es el espacio entre las cosas de afuera y el borde    
+    padding: 40px;
+}
+*/
+body{
+  background: #1a1d24;
+}

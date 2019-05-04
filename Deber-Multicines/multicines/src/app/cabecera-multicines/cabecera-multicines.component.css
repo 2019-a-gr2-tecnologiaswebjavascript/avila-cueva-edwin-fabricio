@@ -1,0 +1,23 @@
+.cabecera{
+    margin: 30px;
+    padding: 40px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.item-cabecera{ 
+    text-align: left;
+    margin: 10px;
+}
+.menu_multicines{
+    padding: 20px;
+    cursor: pointer;
+}
+.item-cabecera-slash{
+    color: rgba(209, 209, 209, 0.5);
+    font-size: 13px;
+    padding: 7px;
+}
+.icono-usuario-login{
+    padding-left: 25px;
+    cursor: pointer;
+}
