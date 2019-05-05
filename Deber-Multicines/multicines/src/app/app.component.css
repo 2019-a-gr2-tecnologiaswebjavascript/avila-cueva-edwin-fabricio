@@ -1,6 +1,15 @@
-.contenedor{
+.contenedor-cabecera{
     color:#ffffff;
     font-family: "Cabin, Roboto Condensed", sans-serif;
     font-size: 16px;
     font-weight: 600;
+}
+.contenedor-peliculas{
+    background: #ffffff;
+}
+.fila-contenedor-peliculas{
+    padding: 20px;
+}
+.col-md-4{
+    max-width: 101.333333%;
 }

@@ -1,7 +1,19 @@
-<div class="contenedor"> 
+<div class="contenedor-cabecera"> 
   <app-cabecera-multicines></app-cabecera-multicines>
   <app-carousel></app-carousel>
   <app-filtros></app-filtros>
 </div>
 
+<div class="row fila-contenedor-peliculas">
+  <div class="contenedor-peliculas" *ngFor = "let pelicula of arregloPeliculas">
+    <div class="col-md-4">  
+      <app-peliculas 
+          [imagenPelicula]="pelicula.imagenPelicula"
+          [nombrePelicula]="pelicula.nombrePelicula"
+          [edadPelicula]="pelicula.edadPelicula"
+          [iconoPelicula]="pelicula.iconoPelicula">
+        </app-peliculas>
+      </div>
+  </div>
+</div>
 

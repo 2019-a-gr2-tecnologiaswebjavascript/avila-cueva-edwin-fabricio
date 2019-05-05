@@ -1,0 +1,17 @@
+.pelicula{
+    padding: 50px;
+    padding-top: 7px;
+}
+.contenido-pelicula{
+    margin-top: 13px;
+}
+.item-pelicula{
+    margin-top: -29px;
+    padding-left: 44px;
+    font-size: 14px;
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+}
+.item-pelicula-edad{
+    color: #a8a8a8; 
+    
+}
