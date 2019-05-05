@@ -11,5 +11,6 @@ export class CabeceraMulticinesComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

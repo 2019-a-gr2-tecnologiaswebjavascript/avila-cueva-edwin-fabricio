@@ -1,0 +1,22 @@
+.filtros{
+    margin-top: 75px; 
+}
+.signos-peliculas{
+    color: #a8a8a8;
+    font-size: 15px;
+    font-weight: 100;
+}
+.menu_multicines_filtros{
+    padding: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.item-filtros{ 
+    text-align: left;
+    margin: 10px;
+}
+.item-filtros-slash{
+    color: rgba(209, 209, 209, 0.5);
+    font-size: 14px;
+    padding: 7px;
+}

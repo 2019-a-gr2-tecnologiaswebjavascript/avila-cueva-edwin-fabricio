@@ -1,0 +1,24 @@
+.imagenes-carousel{
+    margin-left: -140px;
+    margin-top: -35px;
+}
+.boton-izquierda{
+    background:transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    color: rgba(209, 209, 209, 0.5);
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    position: relative;
+}
+.boton-derecha{
+    background:transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    color: rgba(209, 209, 209, 0.5);
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    margin-top: 175px;
+}

@@ -1,0 +1,17 @@
+<div class="carousel">
+    <div class="row">
+        <div class="col-md-1">                    
+        </div>
+       <!-- <div class="col-md-1" [hidden]="!mostrar">
+            <button class="boton-izquierda" (click)="cambiarIzquierda(true)" (mouseover)="aparecerBotones(true)" > < </button>
+        </div>-->
+        <div class="col-md-10">
+            <div class="imagenes-carousel" (mouseover)="aparecerBotones(true)" (mouseout)="aparecerBotones(false)">
+                <img [src]="url">
+            </div>
+        </div>
+         <div class="col-md-1" [hidden]="!mostrar">
+            <button class="boton-derecha" (click)="cambiarDerecha(true)" (mouseover)="aparecerBotones(true)" > > </button>
+          </div>
+     </div>
+</div>
