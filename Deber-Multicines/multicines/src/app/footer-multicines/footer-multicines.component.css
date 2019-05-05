@@ -1,0 +1,58 @@
+.footer{
+    margin: 30px;
+    padding: 40px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.item-footer{ 
+    text-align: left;
+    margin: 10px;
+    font-size: 13px;
+    color:#ffffff;
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+
+.item-footer-slash{
+    font-size: 13px;
+    padding: 7px;
+}
+.icono-usuario-login{
+    padding-left: 25px;
+    cursor: pointer;
+}
+.item-informacion{
+    font-size: 12px;
+    color: #a8a8a8; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-informacion:hover{
+    font-size: 12px;
+    color: #ffffff; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-servicio{
+    font-size: 12px;
+    color: #a8a8a8; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-servicio:hover{
+    font-size: 12px;
+    color: #ffffff;
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.boton-red{
+    margin: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.boton-descargar{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

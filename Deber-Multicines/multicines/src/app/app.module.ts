@@ -5,6 +5,7 @@ import { CabeceraMulticinesComponent } from './cabecera-multicines/cabecera-mult
 import { CarouselComponent } from './carousel/carousel.component';
 import { FiltrosComponent } from './filtros/filtros.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
+import { FooterMulticinesComponent } from './footer-multicines/footer-multicines.component';
 
  
 @NgModule({
@@ -14,6 +15,7 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
     CarouselComponent,
     FiltrosComponent,
     PeliculasComponent,
+    FooterMulticinesComponent,
   ],
   imports: [
     BrowserModule,
