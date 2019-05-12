@@ -1,23 +1,21 @@
 .nav-bar-cabecera{
-    display: block;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: .5rem 7.5rem;
+    padding: .5rem 5.5rem;
+    background-color: #1a1d24;
 }
 
 .lista-menu{
-    padding-left: 184px;
+    padding-left: 88px;
 }
 
 .item-lista-menu{
     display: block;
     padding: .5rem 1rem;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
 }
-
-/*
-
-    
-
-
-       
-*/

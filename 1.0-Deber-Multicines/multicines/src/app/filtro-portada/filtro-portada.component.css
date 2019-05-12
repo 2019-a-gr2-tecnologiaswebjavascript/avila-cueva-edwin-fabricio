@@ -1,0 +1,28 @@
+.contenedor-publicidad-filtros{
+    background-color: #1a1d24;
+    height: 22em;
+    position: relative;
+}
+
+.imagen-publicidad{
+    position: absolute;
+    width: 100%;
+}
+
+.parte-superior-publicidad{
+    background-color: #1a1d24;
+    height: 1.5em;
+    position: absolute;
+    position: relative;
+}
+.parte-inferior-publicidad{
+    background-color:#1a1d24;
+    height: 2.5em;
+    position: absolute;
+    position: relative;
+}
+
+.filtros-peliculas{
+    background: #ffffff;
+    position: absolute;
+}
