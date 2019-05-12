@@ -6,12 +6,13 @@ import { CabeceraPortadaComponent } from './cabecera-portada/cabecera-portada.co
 import { CarouselPortadaComponent } from './carousel-portada/carousel-portada.component';
 import { FiltroPortadaComponent } from './filtro-portada/filtro-portada.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraPortadaComponent,
     CarouselPortadaComponent,
-    FiltroPortadaComponent
+    FiltroPortadaComponent,
   ],
   imports: [
     BrowserModule

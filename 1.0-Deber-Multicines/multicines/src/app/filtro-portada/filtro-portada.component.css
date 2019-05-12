@@ -23,6 +23,82 @@
 }
 
 .filtros-peliculas{
-    background: #ffffff;
+    background-color:#1a1d24;
     position: absolute;
+   
+}
+.item-filtro-calendario-hora{
+    padding: .5rem 0.7rem;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.select-picker-comercial{
+    background-color:#1a1d24;
+    padding-right: 50px;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
+    border:none;
+    cursor: pointer;
+}
+.select-picker-ciudad{
+    background-color:#1a1d24;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
+    border:none;
+    cursor: pointer;
+}
+.item-filtro{
+    color: #a8a8a8;
+    font-size: 14px;
+    font-family: "Cabin, Roboto", sans-serif;
+    letter-spacing: 2.2px;
+}
+.item-filtros{
+    color: #a8a8a8;
+    font-size: 13px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-style: normal;
+    font-weight: 700;
+    border:none;
+    cursor: pointer;
+}
+
+.item-filtros:hover{
+    color: #ffffff;
+    font-size: 13px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-style: normal;
+    font-weight: 700;
+    border:none;
+    cursor: pointer;
+}
+
+
+.item-filtros-slash{
+    padding: 15px;
+    color: #a8a8a8;
+    font-size: 13px;
 }
