@@ -1,0 +1,23 @@
+.nav-bar-cabecera{
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: .5rem 7.5rem;
+}
+
+.lista-menu{
+    padding-left: 184px;
+}
+
+.item-lista-menu{
+    display: block;
+    padding: .5rem 1rem;
+}
+
+/*
+
+    
+
+
+       
+*/
