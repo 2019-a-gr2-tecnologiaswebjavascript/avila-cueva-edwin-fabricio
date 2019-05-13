@@ -11,6 +11,8 @@ import { RutaProductosHogarComponent } from './rutas/ruta-productos-hogar/ruta-p
 import { RutaProductosVideojuegosComponent } from './rutas/ruta-productos-videojuegos/ruta-productos-videojuegos.component';
 import { RutaProductosVideojuegosComputadoraComponent } from './rutas/ruta-productos-videojuegos-computadora/ruta-productos-videojuegos-computadora.component';
 import { RutaProductosVideojuegosPlaystationComponent } from './rutas/ruta-productos-videojuegos-playstation/ruta-productos-videojuegos-playstation.component';
+import { EstaLogeadoService } from './servicios/guards/esta-logeado.service';
+import { AuthService } from './servicios/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { RutaProductosVideojuegosPlaystationComponent } from './rutas/ruta-produ
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EstaLogeadoService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
