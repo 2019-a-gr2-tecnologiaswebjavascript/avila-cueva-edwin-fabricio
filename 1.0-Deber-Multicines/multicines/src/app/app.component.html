@@ -13,4 +13,17 @@
 <div class="filtros-peliculas">
   <app-filtro-portada></app-filtro-portada>
 </div>
+<div class="peliculas">
+<div class="row">
+    <div class="col-md-2" *ngFor = "let pelicula of arregloPeliculas">  
+        <app-peliculas-portada 
+            [imagenPelicula]="pelicula.imagenPelicula"
+            [nombrePelicula]="pelicula.nombrePelicula"
+            [edadPelicula]="pelicula.edadPelicula"
+            [iconoPelicula]="pelicula.iconoPelicula">
+        </app-peliculas-portada>
+      </div>
+</div>
+
+</div>
 

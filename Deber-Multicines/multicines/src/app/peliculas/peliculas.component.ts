@@ -19,8 +19,6 @@ export class PeliculasComponent implements OnInit {
   @Input()
   iconoPelicula;
 
-  
-  
 
   constructor() { }
 

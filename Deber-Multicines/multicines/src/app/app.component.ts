@@ -81,6 +81,5 @@ export class AppComponent {
       edadPelicula:"TODO PÚBLICO",
       iconoPelicula:"../../assets/images/star-green.svg"
     }
-
   ];
 }         

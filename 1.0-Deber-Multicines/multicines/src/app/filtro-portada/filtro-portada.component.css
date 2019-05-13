@@ -25,7 +25,7 @@
 .filtros-peliculas{
     background-color:#1a1d24;
     position: absolute;
-   
+    position: relative;
 }
 .item-filtro-calendario-hora{
     padding: .5rem 0.7rem;
@@ -37,6 +37,7 @@
     letter-spacing: 0.75px;
     font-style: normal;
     font-weight: 700;
+    position: relative;
 }
 
 .select-picker-comercial{
@@ -52,6 +53,7 @@
     font-weight: 700;
     border:none;
     cursor: pointer;
+    position: relative;
 }
 .select-picker-ciudad{
     background-color:#1a1d24;
@@ -65,12 +67,14 @@
     font-weight: 700;
     border:none;
     cursor: pointer;
+    position: relative;
 }
 .item-filtro{
     color: #a8a8a8;
     font-size: 14px;
     font-family: "Cabin, Roboto", sans-serif;
     letter-spacing: 2.2px;
+    position: relative;
 }
 .item-filtros{
     color: #a8a8a8;
@@ -82,6 +86,7 @@
     font-weight: 700;
     border:none;
     cursor: pointer;
+    position: relative;
 }
 
 .item-filtros:hover{
@@ -94,11 +99,12 @@
     font-weight: 700;
     border:none;
     cursor: pointer;
+    position: relative;
 }
-
 
 .item-filtros-slash{
     padding: 15px;
     color: #a8a8a8;
     font-size: 13px;
+    position: relative;
 }
