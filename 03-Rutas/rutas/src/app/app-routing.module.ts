@@ -15,7 +15,7 @@ const routes: Routes = [
     component: RutaHomeComponent,
   },
   {
-    path: 'creditos',
+    path: 'creditos/:idCredito/:tasaReferencia',
     component: RutaCreditosComponent
   },
   {

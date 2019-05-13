@@ -9,5 +9,5 @@ export class AppComponent {
   title = 'rutas';
 
   rutaHome=['/home','app'];
-  rutaCreditos=['/creditos'];
+  rutaCreditos=['/creditos','1',12.00];
 }
