@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-icon name="search"></ion-icon>
+        </ion-col>
+         <ion-col size="11">
+          <span class="search">Search</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
+   <ion-grid>
+      <ion-row class="filtros">
+        <ion-col size="3">
+          <ion-button color="light" class="boton-filtro"><ion-icon name="easel" class="transmision"></ion-icon>&nbsp;&nbsp;IGTV</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="light" class="boton-filtro">  <ion-icon name="briefcase"></ion-icon>&nbsp;&nbsp;Shop</ion-button>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button color="light" class="boton-filtro">Style</ion-button>
+        </ion-col>
+        <ion-col size="1">
+          <ion-button color="light" class="boton-filtro">Comics</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="light" class="boton-filtro-art">Art</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-col class="imagenes" size="4" *ngFor="let imagen of arregloImagenes">
+          <img src="{{imagen.url}}" alt="">
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

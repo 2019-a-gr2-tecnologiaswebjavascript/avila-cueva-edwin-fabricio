@@ -2,3 +2,32 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+.persona-nombre{
+  padding: 16px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.imagen-persona{
+  margin-left: -21px;
+  margin-right: -13px;
+}
+.transmision{
+  transform: rotate(-180deg);
+}
+.cuenta{
+  font-weight: bold;
+  font-size: 13px;
+}
+.cuenta-avatar{
+  font-weight: bold;
+  font-size: 10px;
+}
+.likes{
+  font-weight: bold;
+  font-size: 13px;
+}
+.descripcion{
+  font-size: 13px;
+}
