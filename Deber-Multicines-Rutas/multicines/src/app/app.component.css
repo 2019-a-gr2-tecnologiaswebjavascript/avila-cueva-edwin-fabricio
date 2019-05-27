@@ -1,0 +1,89 @@
+/*                   CABECERA EXTERIOR                                */
+.espacio-vacio-superior-cabecera{
+    background-color: #1a1d24;
+    height: 2.8em;
+}
+.espacio-vacio-inferior-cabecera{
+    background-color: #1a1d24;
+    height: 1.85em;
+}
+/*                  CABECERA INTERTIOR                             */
+.nav-bar-cabecera{
+    padding: .5rem 5.5rem;
+    background-color: #1a1d24;
+}
+
+.lista-menu{
+    padding-left: 88px;
+}
+
+.item-lista-menu{
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "Cabin, Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/*                FOOTER                                 */
+.footer{
+    background-color:  #1a1d24; 
+    padding: 25px;
+}
+.item-footer{ 
+    text-align: left;
+    margin: 10px;
+    font-size: 13px;
+    color:#ffffff;
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+
+.item-footer-slash{
+    font-size: 13px;
+    padding: 7px;
+}
+.icono-usuario-login{
+    padding-left: 25px;
+    cursor: pointer;
+}
+.item-informacion{
+    font-size: 12px;
+    color: #a8a8a8; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-informacion:hover{
+    font-size: 12px;
+    color: #ffffff; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-servicio{
+    font-size: 12px;
+    color: #a8a8a8; 
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.item-servicio:hover{
+    font-size: 12px;
+    color: #ffffff;
+    font-family: "Cabin, Roboto Condensed", sans-serif;
+    cursor: pointer;
+}
+.boton-red{
+    margin: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.boton-descargar{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

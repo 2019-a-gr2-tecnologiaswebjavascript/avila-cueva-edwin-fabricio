@@ -1,0 +1,87 @@
+<div class="cabecera">
+    <div class="row">
+      <div class="col-sm-12 espacio-vacio-superior-cabecera"></div>
+    </div>
+    <div class="row nav-bar-cabecera">
+      <nav class="navbar navbar-expand-lg navbar-light ">
+          <div class="col-md-3 logo-multicines">
+            <img src="../../assets/imagenes/logo_multicines.png" alt="logo-multicines" width="100%">
+          </div>
+          <button class="navbar-toggler boton-collapse" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto lista-menu col-md-8">
+              <li class="nav-item active">
+                <a class="item-lista-menu" [routerLink]="rutaInicio">INICIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="item-lista-menu" [routerLink]="rutaDulceria">DULCERÍA</a>
+              </li>
+              <li class="nav-item">
+                  <a class="item-lista-menu" [routerLink]="rutaPromociones">PROMOCIONES</a>
+                </li>
+              <li class="nav-item">
+                <a class="item-lista-menu" [routerLink]="rutaMulticlub">MULTICLUB</a>
+              </li>
+            </ul>
+            <div class="item-icono col-md-1">
+              <img src="../../assets/imagenes/icono-user-session.svg" class="icono-usuario"alt="icono_user_session" width="100%" height="55px">
+            </div>
+          </div>
+        </nav>
+    </div>  
+    <div class="row">
+      <div class="col-sm-12 espacio-vacio-inferior-cabecera"></div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  <div class="footer">
+    <div class="row">
+        <div class="col-sm-12 espacio-vacio-inferior-cabecera"></div>
+    </div>
+    <div class="row footer">
+      <div class="col-md-2">
+          <img src="../../assets/imagenes/logo_multicines.png" alt="logo_multicines" width="100%">
+          <p class="item-servicio">Multicines © 2019. Todos los derechos reservados.</p>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+          <div class="item-footer">INFORMACIÓN</div>
+            <p class="item-informacion">INICIO</p>
+            <p class="item-informacion">DULCERÍA</p>
+            <p class="item-informacion">PROMOCIONES</p>
+            <p class="item-informacion">CONTÁCTENOS</p>
+            <p class="item-informacion">NOSOTROS</p>
+            <p class="item-informacion">TRABAJA CON NOSOTROS</p>
+            <p class="item-informacion">FACTURACIÓN ELECTRÓNICA</p>
+            <p class="item-informacion">PREGUNTAS FRECUENTES</p>
+            <p class="item-informacion">POLÍTICA DE PRIVACIDAD Y CONDICIONES DE USO</p>
+      </div>
+      <div class="col-md-2">
+          <div class="item-footer">OTROS SERVICIOS</div>
+          <p class="item-servicio">SALAS VIP</p>
+      </div>
+      <div class="col-md-3">
+          <div class="item-footer">SERVICIOS CORPORATIVOS</div>
+          <p class="item-servicio">PUBLICIDAD EN MULTICINES</p>
+          <p class="item-servicio">CUPONES Y FUNCIONES PRIVADAS</p>
+          <p class="item-servicio">AUSPICIO EN COMBOS</p>
+      </div>      
+     
+      <div class="col-md-2 icono-usuario-login">
+          <img src="../../assets/imagenes/icono-user-session.svg" alt="usuario" width="100%" height="12%">
+          <p class="item-servicio">Síguenos en:</p>
+          <span class="botones-redes-sociales">
+              <button class="boton-red"><img src="../../assets/imagenes/icono-fb.svg" height="20px" width="20px"></button>
+              <button class="boton-red"><img src="../../assets/imagenes/icono-inst.svg" height="20px" width="20px"></button>
+              <button class="boton-red"><img src="../../assets/imagenes/icono-you.svg" height="20px" width="20px"></button>
+          </span>
+          <p><button class="boton-descargar" ><img src="../../assets/imagenes/icono-google-play.png" height="100px" width="100px"></button></p>
+          <p><button class="boton-descargar" ><img src="../../assets/imagenes/icono-app-store.png" height="100px" width="100px"></button></p>
+        </div>
+  </div>  
+</div>
+
+
+
