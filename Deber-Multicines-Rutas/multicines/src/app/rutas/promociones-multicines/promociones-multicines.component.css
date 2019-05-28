@@ -1,0 +1,101 @@
+.espacio-promociones{
+    background-color: #1a1d24;
+    height: 7.8em;
+    text-align: center;
+    padding: 35px;
+}
+.espacio-promociones2{
+    background-color: #1a1d24;
+    height: 3.8em;
+    text-align: center;
+    padding: 35px;
+}
+.titulo-promocion{
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1.55px;
+    font-family:  "Cabin", "Roboto", sans-serif; 
+    font-size: 36px;
+    font-weight: 500;
+    padding: 25px;
+}
+.punto{
+    color: #fcb115;
+    font-weight: 500;
+    font-size: 25px;
+}
+.subtitulo-promocion{
+    color:#a8a8a8;;
+    font-size: 14px;
+    
+}
+.disfrute-promociones{
+    margin-top: 20px;
+    text-align: center;
+}
+.titulo-disfrute-promociones{
+    font-family: "Cabin", "Roboto", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-style: normal;
+    font-size: 23px;
+    
+}
+.espacio-blanco{
+    height: 7.8em;
+}
+.titulo-cantimplora{
+    font-family: "Cabin", "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 23px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+.cantimplora{
+    margin: 15px;
+}
+.imagenPro{
+    padding-left: 15px;
+}
+.parrafo-abajo-imagen{
+    padding-top: 15px;
+    padding-left: 15px;
+    color: #737373;
+    font-size: 17px;
+}
+.boton-ver-mas{
+    color: #ffffff;
+    background-color: #fcb115;
+    font-family: "Cabin", "Roboto Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 700;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 1.25em 3em;
+    letter-spacing: 1px;
+    height: auto;
+    border-width: 0 !important;
+    -webkit-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+}
+.boton{
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}

@@ -1,3 +1,20 @@
-<p>
-  dulceria-multicines works!
-</p>
+<app-carousel-dulceria></app-carousel-dulceria>
+<div class="dulces">
+  <div class="row">
+      <div class="col-md-4" *ngFor = "let dulce of arregloDulces">  
+          <app-imagenes-dulces 
+              [urlImagen]="dulce.urlImagen">
+          </app-imagenes-dulces>
+        </div>
+  </div>
+</div>
+<div class="row informacion-dulce">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+      <span class="parrafo">
+          Nota: Las siguientes imágenes se refieren a los combos estándares o tradicionales, estos pueden sufrir cambios como resultado de promociones, auspicios o inclusión de productos promocionales.
+      </span>        
+  </div>
+  <div class="col-md-1"></div>
+</div>
+

@@ -12,6 +12,8 @@ import { RutaNoEncontradaComponent } from './rutas/ruta-no-encontrada/ruta-no-en
 import { DulceriaMulticinesComponent } from './rutas/dulceria-multicines/dulceria-multicines.component';
 import { PromocionesMulticinesComponent } from './rutas/promociones-multicines/promociones-multicines.component';
 import { MulticlubMulticinesComponent } from './rutas/multiclub-multicines/multiclub-multicines.component';
+import { CarouselDulceriaComponent } from './rutas/dulceria-multicines/componentes-dulceria/carousel-dulceria/carousel-dulceria.component';
+import { ImagenesDulcesComponent } from './rutas/dulceria-multicines/componentes-dulceria/imagenes-dulces/imagenes-dulces.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MulticlubMulticinesComponent } from './rutas/multiclub-multicines/multi
     RutaNoEncontradaComponent,
     DulceriaMulticinesComponent,
     PromocionesMulticinesComponent,
-    MulticlubMulticinesComponent
+    MulticlubMulticinesComponent,
+    CarouselDulceriaComponent,
+    ImagenesDulcesComponent
   ],
   imports: [
     BrowserModule,
