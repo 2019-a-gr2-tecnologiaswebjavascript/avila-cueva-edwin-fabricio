@@ -1,3 +1,19 @@
 .peliculas{
     margin: 25px;
 }
+.modal-content{
+    background:#000;
+}
+.modal-header{
+    border-bottom: none;
+}
+.modal-title{
+    padding: .5rem 0.7rem;
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: "Cabin, Roboto", sans-serif;
+    letter-spacing: 0.75px;
+    font-style: normal;
+    font-weight: 700;
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-peliculas-portada',
@@ -19,9 +21,35 @@ export class PeliculasPortadaComponent implements OnInit {
   @Input()
   iconoPelicula;
 
-  constructor() { }
+  @Input()
+  videoPelicula;
+
+  @Input()
+  arregloPeliculas;
+
+  nombrePeliculaModal;
+  mostrar=false;
+  
+  @Output()
+  cambioNombre:EventEmitter<boolean> = new EventEmitter();
+
+  constructor() {}
 
   ngOnInit() {
   }
 
+  eventoNombrePelicula(nombrePelicula){
+    const respuestaFind = this.arregloPeliculas.find(
+      (valor):boolean => {
+        return valor.nombrePelicula == nombrePelicula;
+      }
+    );
+    this.cambioNombre.emit(respuestaFind);
+  }
+
+  aparecerBotones(mostrar){
+    console.log(mostrar);
+    this.mostrar = mostrar;
+  }
+  
 }

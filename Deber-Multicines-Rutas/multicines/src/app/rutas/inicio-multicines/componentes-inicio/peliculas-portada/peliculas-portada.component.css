@@ -10,3 +10,11 @@
 .item-pelicula-edad{
     color: #a8a8a8;
 }
+.btn-primary{
+    border-radius: 50px;
+    background: #2e3036;
+    border-color: #2e3036;
+    position: absolute;
+    top:190px;
+    left:90px;
+}
