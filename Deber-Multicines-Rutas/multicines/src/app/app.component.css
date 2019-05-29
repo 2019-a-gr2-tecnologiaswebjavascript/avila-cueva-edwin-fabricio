@@ -7,6 +7,10 @@
     background-color: #1a1d24;
     height: 1.85em;
 }
+.botonSesion{
+    background: transparent;
+    border: none;
+}
 /*                  CABECERA INTERTIOR                             */
 .nav-bar-cabecera{
     padding: .5rem 5.5rem;

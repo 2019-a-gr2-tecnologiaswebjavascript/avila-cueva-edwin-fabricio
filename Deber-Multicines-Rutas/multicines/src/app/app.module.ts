@@ -14,6 +14,8 @@ import { PromocionesMulticinesComponent } from './rutas/promociones-multicines/p
 import { MulticlubMulticinesComponent } from './rutas/multiclub-multicines/multiclub-multicines.component';
 import { CarouselDulceriaComponent } from './rutas/dulceria-multicines/componentes-dulceria/carousel-dulceria/carousel-dulceria.component';
 import { ImagenesDulcesComponent } from './rutas/dulceria-multicines/componentes-dulceria/imagenes-dulces/imagenes-dulces.component';
+import { PeliculasEstrenosComponent } from './rutas/inicio-multicines/componentes-inicio/peliculas-estrenos/peliculas-estrenos.component';
+import { PeliculasProximosEstrenosComponent } from './rutas/inicio-multicines/componentes-inicio/peliculas-proximos-estrenos/peliculas-proximos-estrenos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ImagenesDulcesComponent } from './rutas/dulceria-multicines/componentes
     PromocionesMulticinesComponent,
     MulticlubMulticinesComponent,
     CarouselDulceriaComponent,
-    ImagenesDulcesComponent
+    ImagenesDulcesComponent,
+    PeliculasEstrenosComponent,
+    PeliculasProximosEstrenosComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { MulticlubMulticinesComponent } from './rutas/multiclub-multicines/multi
 const routes: Routes = [
   {
     path: 'inicio',
-    component: InicioMulticinesComponent
+    component: InicioMulticinesComponent,
   },
   {
     path: 'dulceria',
