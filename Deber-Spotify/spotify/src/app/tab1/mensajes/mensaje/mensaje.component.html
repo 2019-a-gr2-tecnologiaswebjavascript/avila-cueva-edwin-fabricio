@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-avatar>
+            <img src="{{avatar}}">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="8">
+          <ion-label class="persona-nombre" >{{nombre}}</ion-label>
+          <p class="ultima-conexion">{{ultimaConexion}}</p>
+        </ion-col> 
+        <ion-col size="1">
+            <ion-icon name="camera" md="md-create" class="boton-camera"></ion-icon>
+        </ion-col> 
+        <ion-col size="1">
+            <ion-icon ios="ios-alert" md="md-alert"></ion-icon>
+        </ion-col> 
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p *ngFor = "let resd of comentarioD">{{resd}}</p>
+        <p *ngFor = "let res of respuesta">{{res}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+        <ion-item>
+            <ion-input (keyup.enter)=eventoComentario(true) [(ngModel)]="comentario"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="1">
+            <ion-icon name="camera" md="md-create" class="boton-camera"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+            <ion-icon ios="ios-mic" md="md-mic"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+            <ion-icon ios="ios-images" md="md-images"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

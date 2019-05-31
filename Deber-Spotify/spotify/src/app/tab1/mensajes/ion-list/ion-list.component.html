@@ -1,0 +1,55 @@
+
+<ion-header>
+  <ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        Direct
+      </ion-col>
+      <ion-col size="1">
+          <ion-icon name="videocam" md="md-create"></ion-icon>
+      </ion-col>
+      <ion-col size="1">
+          <ion-icon ios="ios-create" md="md-create"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
+<ion-toolbar>
+  <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-icon name="search"></ion-icon>
+        </ion-col>
+         <ion-col size="11">
+          <span class="search">Search</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <router-outlet></router-outlet>
+    <ion-list-header>
+        <ion-label >Messages</ion-label>
+    </ion-list-header>  
+  <ion-list *ngFor="let persona of arregloPersonas">
+      <ion-grid>
+          <ion-row [routerLink]="rutaMensaje" (click)=eventoNombrePersona(persona.nombre)>
+            <ion-col size="2">
+              <ion-avatar>
+                <img src="{{persona.avatar}}">
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="9">
+              <ion-label class="persona-nombre" >{{persona.nombre}}</ion-label>
+              <p class="ultima-conexion">{{persona.ultimaConexion}}</p>
+            </ion-col> 
+            <ion-col size="1">
+                <ion-icon name="camera" md="md-create" class="boton-camera"></ion-icon>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-list>
+</ion-content>

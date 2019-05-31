@@ -31,3 +31,44 @@
 .descripcion{
   font-size: 13px;
 }
+.scrolling-wrapper {
+  overflow-x: scroll;
+  min-height: 50px;
+  white-space: nowrap;
+
+  .card {
+    display: inline-block;
+    margin: 15px;
+  }
+
+}
+.boton-chatbubbles{
+  background: transparent;
+  font-size: 20px;
+  margin-left: -10px;
+}
+
+#boton-heart{
+  background: transparent;
+  font-size: 20px;
+  margin-left: -10px;
+}
+.boton-send{
+  background: transparent;
+  font-size: 20px;
+  margin-left: -10px;
+}
+.boton-bookmark{
+  background: transparent;
+  font-size: 20px;
+}
+.nombreUsuario{
+  font-weight: bold;
+  font-size: 13px;
+}
+.comentario{
+  font-size: 13px;
+}
+.corazon-rojo{
+  color: red;
+}

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-ion-list',
+  templateUrl: './ion-list.component.html',
+  styleUrls: ['./ion-list.component.scss'],
 })
-export class Tab1Page {
+export class IonListComponent implements OnInit {
 
   arregloPersonas = [
     {
@@ -15,6 +15,7 @@ export class Tab1Page {
       likes:"104,506 likes",
       cuenta:"chris_hems",
       descripcion: "Asgardians of the galaxy... JAJA I´m the captain, Sorry Star Lord",
+      ultimaConexion:"Active 59m ago"
     },
     {
       nombre:"Lilly Collins",
@@ -23,6 +24,7 @@ export class Tab1Page {
       likes:"54,586 likes",
       cuenta:"lilly_collins",
       descripcion: "I love it",
+      ultimaConexion:"Active 19m ago"
     },
     {
       nombre:"Jessica López",
@@ -31,6 +33,7 @@ export class Tab1Page {
       likes:"12 likes",
       cuenta:"jesselope98",
       descripcion: "Qué tengan un lindo día",
+      ultimaConexion:"Active now"
     },
     {
       nombre:"Jhon Frick",
@@ -39,6 +42,7 @@ export class Tab1Page {
       likes:"415 likes",
       cuenta:"frick_john78",
       descripcion: "TE AMO <3",
+      ultimaConexion:"Active 2w ago"
     },
     {
       nombre:"Domenique Lesly",
@@ -47,6 +51,7 @@ export class Tab1Page {
       likes:"4,566 likes",
       cuenta:"lesy_15",
       descripcion: "Hellow, Im a single. I love all",
+      ultimaConexion:"Active 15m ago"
     },
     {
       nombre:"Jackie Chan",
@@ -55,21 +60,24 @@ export class Tab1Page {
       likes:"345,124 likes",
       cuenta:"jackie_chan",
       descripcion: "Reboot de Pareja Explosiva",
+      ultimaConexion:"Active 5m ago"
     },
 
   ];  
-
-  mostrar=false;
-
-  rojo;
-
-  enviarMensaje(evento){
-    //console.log(evento);
-    this.mostrar=evento;
+  nombrePersona;
+  rutaMensaje;
+  eventoNombrePersona(nombre){
+    this.nombrePersona = nombre; 
+    this.rutaMensaje=['/mensaje',this.nombrePersona];
   }
-  like(evento){
-    this.rojo = "corazon-rojo";
-  }
-  rutaIonList=['/ion-list'];
+
+
  
+  
+  constructor() { }
+
+  ngOnInit() {}
+
+
 }
+

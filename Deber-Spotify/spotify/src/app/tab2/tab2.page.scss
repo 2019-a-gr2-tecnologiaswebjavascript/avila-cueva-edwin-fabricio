@@ -7,9 +7,13 @@
     font-size: 10px;
     font-weight: bold;
 }
-
-.boton-filtro-art{
-    padding-left:38px;
-    font-size: 10px;
-    font-weight: bold;
- }
+.scrolling-wrapper {
+    overflow-x: scroll;
+    min-height: 50px;
+    white-space: nowrap;
+  
+    .card {
+      display: inline-block;
+      margin: 15px;
+    }
+}  

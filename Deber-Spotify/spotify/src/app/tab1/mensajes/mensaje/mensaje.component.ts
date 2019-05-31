@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-mensaje',
+  templateUrl: './mensaje.component.html',
+  styleUrls: ['./mensaje.component.scss'],
 })
-export class Tab1Page {
+export class MensajeComponent implements OnInit {
 
   arregloPersonas = [
     {
@@ -15,6 +16,7 @@ export class Tab1Page {
       likes:"104,506 likes",
       cuenta:"chris_hems",
       descripcion: "Asgardians of the galaxy... JAJA I´m the captain, Sorry Star Lord",
+      ultimaConexion:"Active 59m ago"
     },
     {
       nombre:"Lilly Collins",
@@ -23,6 +25,7 @@ export class Tab1Page {
       likes:"54,586 likes",
       cuenta:"lilly_collins",
       descripcion: "I love it",
+      ultimaConexion:"Active 19m ago"
     },
     {
       nombre:"Jessica López",
@@ -31,6 +34,7 @@ export class Tab1Page {
       likes:"12 likes",
       cuenta:"jesselope98",
       descripcion: "Qué tengan un lindo día",
+      ultimaConexion:"Active now"
     },
     {
       nombre:"Jhon Frick",
@@ -39,6 +43,7 @@ export class Tab1Page {
       likes:"415 likes",
       cuenta:"frick_john78",
       descripcion: "TE AMO <3",
+      ultimaConexion:"Active 2w ago"
     },
     {
       nombre:"Domenique Lesly",
@@ -47,6 +52,7 @@ export class Tab1Page {
       likes:"4,566 likes",
       cuenta:"lesy_15",
       descripcion: "Hellow, Im a single. I love all",
+      ultimaConexion:"Active 15m ago"
     },
     {
       nombre:"Jackie Chan",
@@ -55,21 +61,73 @@ export class Tab1Page {
       likes:"345,124 likes",
       cuenta:"jackie_chan",
       descripcion: "Reboot de Pareja Explosiva",
+      ultimaConexion:"Active 5m ago"
     },
 
   ];  
 
-  mostrar=false;
 
-  rojo;
+  constructor(private readonly _activatedRoute:ActivatedRoute) { }
 
-  enviarMensaje(evento){
-    //console.log(evento);
-    this.mostrar=evento;
+  buscarPersona;
+
+  ngOnInit() {
+
+    //parametros de RUTA .params
+    const parametros$ = this._activatedRoute.params;
+
+    //solo en parametros de busqueda o cconsulta 
+    //usamos el error y el completado 
+
+    
+
+    const hola = parametros$
+    .subscribe(
+      (parametros)=>{//cuando las cosads estan bien ->try
+        const respuesta = this.arregloPersonas.find(
+          (valor)=>{
+            return valor.nombre == parametros.nombrePersona;
+        });
+
+        this.eventoPersona(respuesta);
+      },
+      (error)=>{ //cuando las cosas estan mal ->catch
+        console.log('Error',error);
+      },
+      ()=>{//es como el  finally que termina de hacer todo
+            // y al ultimo ejecuta esto ->finally
+        console.log('Completo');
+      }
+    )
+    
   }
-  like(evento){
-    this.rojo = "corazon-rojo";
+
+  nombre;
+  avatar;
+  ultimaConexion;
+  comentario;
+  respuesta=[];
+  comentarioD=[];
+  cuenta;
+
+  eventoPersona(persona){
+    this.nombre = persona.nombre;
+    this.avatar = persona.avatar;
+    this.ultimaConexion = persona.ultimaConexion;
+    this.cuenta = persona.cuenta;
   }
-  rutaIonList=['/ion-list'];
- 
+
+  eventoComentario(evento){
+    if(this.comentario=="hola" && evento==true){
+      this.respuesta.push("Hola cómo estas?");
+      this.comentarioD.push("hola");
+    }else if(this.comentario=="que haces?" && evento==true){
+      this.respuesta.push("nada y tú?");
+      this.comentarioD.push("que haces?");
+    }else if(this.comentario=="hola amor" && evento==true){
+      this.respuesta.push("hola mi vida");
+      this.comentarioD.push("hola amor");
+    }
+  }
+
 }

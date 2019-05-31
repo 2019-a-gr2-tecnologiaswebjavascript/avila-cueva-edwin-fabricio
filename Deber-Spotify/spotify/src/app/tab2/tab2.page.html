@@ -11,7 +11,39 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
-   <ion-grid>
+  
+  <div class="scrolling-wrapper">
+      <div class="card">
+          <ion-button color="light" class="boton-filtro"><ion-icon name="easel" class="transmision"></ion-icon>&nbsp;&nbsp;IGTV</ion-button>
+          <ion-button color="light" class="boton-filtro">  <ion-icon name="briefcase"></ion-icon>&nbsp;&nbsp;Shop</ion-button>
+          <ion-button color="light" class="boton-filtro">Style</ion-button>
+          <ion-button color="light" class="boton-filtro">Comics</ion-button>
+          <ion-button color="light" class="boton-filtro">Art</ion-button>
+          <ion-button color="light" class="boton-filtro">Animals</ion-button>
+          <ion-button color="light" class="boton-filtro">Travel</ion-button>
+          <ion-button color="light" class="boton-filtro">Humor</ion-button>
+          <ion-button color="light" class="boton-filtro">Dance</ion-button>
+          <ion-button color="light" class="boton-filtro">Sport</ion-button>
+          <ion-button color="light" class="boton-filtro">Gaming</ion-button>
+      </div>
+    </div>
+   
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-col class="imagenes" size="4" *ngFor="let imagen of arregloImagenes">
+          <img src="{{imagen.url}}" alt="">
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+<!--
+  <ion-grid>
       <ion-row class="filtros">
         <ion-col size="3">
           <ion-button color="light" class="boton-filtro"><ion-icon name="easel" class="transmision"></ion-icon>&nbsp;&nbsp;IGTV</ion-button>
@@ -30,15 +62,4 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-</ion-header>
-
-<ion-content>
-  <ion-grid>
-    <ion-row>
-        <ion-col class="imagenes" size="4" *ngFor="let imagen of arregloImagenes">
-          <img src="{{imagen.url}}" alt="">
-        </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+-->
