@@ -20,18 +20,12 @@ export class GuardarService {
         {
           nombreCajero: nuevoNombre,
           arregloEntrenador:[
-            {
-            nombreEntrenador:'Ash',
-            apellidoEntrenador:'Ketchum',
-            fechaNacimiento:new Date,
-            numeroMedallas: 1,
-            campeonActual: false,   
-            arregloPokemon:[
-                {
-                }
-            ],
+              {   
+              arregloPokemon:[
+                {}
+                ],
             }
-        ]
+          ]
         }
       );
       console.log('guarda',this._auth.arregloNombresCajero);

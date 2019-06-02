@@ -24,35 +24,56 @@ export class EntrenadorComponent implements OnInit {
   ocultar=false;
   nombreRutaEntrenador;
   rutaPokemon;
+
   crearPokemon(nombre){
     this.ocultar = true;
     this.rutaPokemon=['/menu',this._auth.nombreCajeroLogin,'entrenador',nombre,'pokemon'];
     this._router.navigate(this.rutaPokemon);
   }
 
-  
-
   ngOnInit() {  
-    console.log(this.nombreBuscarEntrenador);
+      //parametros de RUTA .params
+      const parametros$ = this._activatedRoute.params;
+      //solo en parametros de busqueda o cconsulta 
+      //usamos el error y el completado 
+      parametros$
+      .subscribe(
+        (parametros)=>{//cuando las cosads estan bien ->try
+          this.nombreCajero = this._auth.nombreCajeroLogin;
+          this.arregloEntrenadorG = this._buscarService.buscarCajero(this.nombreCajero);
+          this.arregloEntrenadorNC= this.arregloEntrenadorG.arreglo;
+          this.arregloEntrenadorE = this.arregloEntrenadorG.arreglo.arregloEntrenador;
+        },
+        (error)=>{ //cuando las cosas estan mal ->catch
+          console.log('Error',error);
+        },
+        ()=>{//es como el  finally que termina de hacer todo
+              // y al ultimo ejecuta esto ->finally
+          console.log('Completo');
+        }
+      )
   }
-  mostrar=false;
+
+
+  arregloEntrenadorG;
+  arregloEntrenadorNC
+  arregloEntrenadorE;
+  nombreBuscarEntrenador
+  mostrar=false; 
   nombreEntrenador;
   apellidoEntrenador;
   fechaEntrenador;
   numeroMedallasEntrenador;
   campeonEntrenador;
-  arregloEntrenador;
   
   mostrarFormularioEntrenador(evento){
     this.mostrar = evento;
   }
 
-  ver=true;
+
   bandera=false;
   crearEntrenador(){
-    const nombreABuscar = this._auth.nombreCajeroLogin;
-    const respuesta = this._buscarService.buscarCajero(nombreABuscar);
-    const respuestaBuscar = respuesta.arreglo.arregloEntrenador.find(
+    this.arregloEntrenadorE.find(
       (valor)=>{
         if(valor.nombreEntrenador === this.nombreEntrenador){
             this.bandera= true;
@@ -63,11 +84,11 @@ export class EntrenadorComponent implements OnInit {
         };
       }
     )
-
-      if(this.bandera === true){
+ 
+    if(this.bandera === true){
         alert('YA EXISTE ESE ENTRENADOR');
       }else{
-        console.log(respuesta.arreglo.arregloEntrenador.push(
+        console.log(this.arregloEntrenadorE.push(
           {
             nombreEntrenador: this.nombreEntrenador,
             apellidoEntrenador: this.apellidoEntrenador,
@@ -80,35 +101,37 @@ export class EntrenadorComponent implements OnInit {
             ] 
           }
         ));
-        this.arregloEntrenador = respuesta.arreglo.arregloEntrenador;
-      }
+    }
     
   }
 
 
-  nombreBuscarEntrenador;
-  arregloBuscado=[];
+  arregloEntrenadorBuscar;
   esconder=false;
   buscarEntrenador(evento){
-    if(this.nombreBuscarEntrenador){
-      const respuesta = this.arregloEntrenador.find(
-        (valor)=>{
-  
-          return valor.nombreEntrenador ===  this.nombreBuscarEntrenador;
-        }
-      );
-      this.arregloBuscado=respuesta;
-  
-      this.esconder= evento;
+    if(this.nombreBuscarEntrenador != ""){
+      this.arregloEntrenadorBuscar = this._buscarService.buscarEntrenador1(this.nombreBuscarEntrenador,this.arregloEntrenadorE);
+      this.esconder=evento;
     }else{
-    
-      this.esconder = false;
-      this.arregloEntrenador; 
-  }
+      this.esconder=false;
+    }
   }
 
   indiceEliminar;
   eliminarEntrenador(nombreAEliminar){
+    const respuesta = this.arregloEntrenadorE.forEach(
+      (valor,indice)=>{
+         if(valor.nombreEntrenador === nombreAEliminar){
+            this.indiceEliminar = indice;
+        }
+      });
+
+      this.arregloEntrenadorE.splice(this.indiceEliminar,1);
+
+  }
+
+  /*eliminarEntrenadorBusqueda(nombreAEliminar){
+    //delete(this.arregloBuscado);
     const respuesta = this.arregloEntrenador.forEach(
       (valor,indice)=>{
          if(valor.nombreEntrenador === nombreAEliminar){
@@ -117,20 +140,7 @@ export class EntrenadorComponent implements OnInit {
       });
 
       this.arregloEntrenador.splice(this.indiceEliminar,1);
-
-  }
-
-  eliminarEntrenadorBusqueda(nombreAEliminar){
-    delete(this.arregloBuscado);
-    const respuesta = this.arregloEntrenador.forEach(
-      (valor,indice)=>{
-         if(valor.nombreEntrenador === nombreAEliminar){
-            this.indiceEliminar = indice;
-        }
-      });
-
-      this.arregloEntrenador.splice(this.indiceEliminar,1);
-  }
+  }*/
  
 
   

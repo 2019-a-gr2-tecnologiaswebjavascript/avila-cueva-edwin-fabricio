@@ -9,12 +9,13 @@ export class BuscarCajeroService {
   constructor(private readonly _authService:AuthService) { }
 
   buscarCajero(nombre){
+    console.log('nome en meotod',nombre);
     const respuesta = this._authService.arregloNombresCajero.find(
       (valor)=>{
         return valor.nombreCajero === nombre;
       }
     )
-  
+    console.log('asdas',respuesta);
     const respuestaArreglo={
       valor: true,
       arreglo: respuesta,
@@ -30,15 +31,24 @@ export class BuscarCajeroService {
         return valor.nombreEntrenador === nombre;
       }
     )
- 
     const respuestaArreglo={
       valor : true,
       arreglo: respuestaBuscarEntrenador
     }
-    console.log('arelogbucads',respuestaArreglo); 
+    //console.log('arelogbucads',respuestaArreglo); 
     return respuestaArreglo;
   }
   
+  buscarEntrenador1(entrenador,arreglo){
+    const respuestaFind = arreglo.find(
+      (valor)=>{
+        return valor.nombreEntrenador === entrenador;
+      }
+    )
+      return respuestaFind;
+  }
+  
+
   buscarPokemon(pokemon,arreglo){
     const respuestaFind = arreglo.find(
       (valor)=>{

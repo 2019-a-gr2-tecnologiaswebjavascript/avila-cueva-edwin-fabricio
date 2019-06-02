@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   constructor(private readonly _activatedRoute:ActivatedRoute,
-    private readonly _route:Router) { }
+    private readonly _router:Router,) { }
 
 
   nombreCajero;
@@ -26,7 +26,6 @@ export class MenuComponent implements OnInit {
     parametros$
     .subscribe(
       (parametros)=>{//cuando las cosads estan bien ->try
-        console.log('Parametros:',parametros.nombre);
         this.nombreCajero = parametros.nombre;
         this.rutaEntrenador=['/menu',this.nombreCajero,'entrenador'];
         this.rutaComprar = ['/menu',this.nombreCajero,'comprar'];
@@ -44,6 +43,7 @@ export class MenuComponent implements OnInit {
 
   mostrarBotones(evento){
     this.mostrar= evento;
+    this._router.navigate(this.rutaEntrenador);
   }
  
 

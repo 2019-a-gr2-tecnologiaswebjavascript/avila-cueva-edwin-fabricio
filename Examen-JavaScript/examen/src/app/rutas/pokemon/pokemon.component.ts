@@ -110,9 +110,7 @@ export class PokemonComponent implements OnInit {
             this.indiceEliminar = indice;
         }
       });
-
       this.arregloPokemonP.splice(this.indiceEliminar,1);
       console.log(this.arregloPokemonP);
-
   }
 }
