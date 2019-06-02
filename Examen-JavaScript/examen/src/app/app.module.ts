@@ -13,6 +13,7 @@ import { MenuComponent } from './rutas/menu/menu.component';
 import { GuardarService } from './servicios/guardar/guardar.service';
 import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
 import { ComprarComponent } from './rutas/comprar/comprar.component';
+import { PokemonComponent } from './rutas/pokemon/pokemon.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ComprarComponent } from './rutas/comprar/comprar.component';
     MenuComponent,
     EntrenadorComponent,
     ComprarComponent,
+    PokemonComponent,
   ],
   imports: [
     BrowserModule,

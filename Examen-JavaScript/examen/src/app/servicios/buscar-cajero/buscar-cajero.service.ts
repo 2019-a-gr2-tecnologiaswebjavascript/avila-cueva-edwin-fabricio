@@ -11,7 +11,7 @@ export class BuscarCajeroService {
   buscarCajero(nombre){
     const respuesta = this._authService.arregloNombresCajero.find(
       (valor)=>{
-        return valor.nombreCajero = nombre;
+        return valor.nombreCajero === nombre;
       }
     )
   
@@ -21,9 +21,32 @@ export class BuscarCajeroService {
     }
     return  respuestaArreglo;
   }
+
+  buscarEntrenador(nombre){
+    const respuestaBuscar = this.buscarCajero(this._authService.nombreCajeroLogin); 
+ 
+    const respuestaBuscarEntrenador = respuestaBuscar.arreglo.arregloEntrenador.find(
+      (valor)=>{
+        return valor.nombreEntrenador === nombre;
+      }
+    )
+ 
+    const respuestaArreglo={
+      valor : true,
+      arreglo: respuestaBuscarEntrenador
+    }
+    console.log('arelogbucads',respuestaArreglo); 
+    return respuestaArreglo;
+  }
   
-  obtenerNombre(nombre){
-    console.log('welele',nombre);
+  buscarPokemon(pokemon,arreglo){
+    const respuestaFind = arreglo.find(
+      (valor)=>{
+        return valor.nombrePokemon === pokemon;
+      }
+    )
+  
+      return respuestaFind;
   }
 
   

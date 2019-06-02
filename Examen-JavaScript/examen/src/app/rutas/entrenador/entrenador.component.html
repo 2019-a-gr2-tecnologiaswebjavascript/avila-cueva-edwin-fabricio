@@ -1,3 +1,4 @@
+<div class="entrenador" [hidden]="ocultar">
 <h1>ENTRENADOR</h1>
 <div class="formulario-general-buscar" [hidden]="mostrar">
   <div class="row formulario-login-row">
@@ -37,8 +38,8 @@
         <td>{{entrenador.numeroMedallas}}</td>
         <td>{{entrenador.campeonActual}}</td>
         <td>
-          <button type="submit" class="btn btn-primary" (click)="eliminarEntrenador()">ELIMINAR</button>
-          <button type="submit" class="btn btn-primary" (click)="crearPokemon()">POKEMON</button>
+          <button type="submit" class="btn btn-primary" (click)="eliminarEntrenador(entrenador.nombreEntrenador)">ELIMINAR</button>
+          <button type="submit" class="btn btn-primary" (click)="crearPokemon(entrenador.nombreEntrenador)">POKEMON</button>
         </td>
       </tr>
       <tr *ngIf="arregloBuscado" [hidden]="!esconder">
@@ -48,16 +49,15 @@
           <td>{{arregloBuscado.numeroMedallas}}</td>
           <td>{{arregloBuscado.campeonActual}}</td>
           <td>
-            <button type="submit" class="btn btn-primary" (click)="eliminarEntrenador()">ELIMINAR</button>
-            <button type="submit" class="btn btn-primary" (click)="crearPokemon()">POKEMON</button>
+            <button type="submit" class="btn btn-primary" (click)="eliminarEntrenadorBusqueda(arregloBuscado.nombreEntrenador)">ELIMINAR</button>
+            <button type="submit" class="btn btn-primary" (click)="crearPokemon(arregloBuscado.nombreEntrenador)">POKEMON</button>
           </td>
         </tr>
     </tbody>
   </table>
-  
 </div>
 
-<button type="submit" class="btn btn-primary" (click)="mostrarFormularioEntrenador(true)" [hidden]="mostrar" >CREAR</button>
+<button type="submit" class="btn btn-primary" (click)="mostrarFormularioEntrenador(true)" [hidden]="mostrar" >CREAR ENTRENADOR</button>
 
 
 <div class="formulario-entrenador" [hidden]="!mostrar">
@@ -91,3 +91,5 @@
       <div class="col-md-3"></div>
     </div>
   </div>
+</div>
+<router-outlet ></router-outlet>

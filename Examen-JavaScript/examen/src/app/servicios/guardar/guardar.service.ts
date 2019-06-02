@@ -21,19 +21,13 @@ export class GuardarService {
           nombreCajero: nuevoNombre,
           arregloEntrenador:[
             {
-            nombreEntrenador:'',
-            apellidoEntrenador:'',
+            nombreEntrenador:'Ash',
+            apellidoEntrenador:'Ketchum',
             fechaNacimiento:new Date,
-            numeroMedallas: 0,
-            campeonActual: true,   
+            numeroMedallas: 1,
+            campeonActual: false,   
             arregloPokemon:[
                 {
-                numeroPokemon: 0,
-                nombrePokemon:'',  
-                poderEspecialUno:'' ,
-                poderEspecialDos:'',
-                fechaCaptura: new Date,  
-                nivel: 0,
                 }
             ],
             }

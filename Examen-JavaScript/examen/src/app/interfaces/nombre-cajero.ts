@@ -9,12 +9,6 @@ export interface Cajero{
         campeonActual?: boolean,   
         arregloPokemon?:[
             {
-            numeroPokemon?: number,
-            nombrePokemon?:string,  
-            poderEspecialUno?: string,
-            poderEspecialDos?: string,
-            fechaCaptura?: Date,  
-            nivel?: number 
             }
         ],
         }

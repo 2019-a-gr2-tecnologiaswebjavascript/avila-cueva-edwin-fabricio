@@ -7,6 +7,7 @@ import { GuardarComponent } from './rutas/guardar/guardar.component';
 import { MenuComponent } from './rutas/menu/menu.component';
 import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
 import { ComprarComponent } from './rutas/comprar/comprar.component';
+import { PokemonComponent } from './rutas/pokemon/pokemon.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,13 @@ const routes: Routes = [
     children:[
       {
         path:'entrenador',
-        component:EntrenadorComponent
+        component:EntrenadorComponent,
+        children:[
+          {
+          path:':entrenador/pokemon',
+          component:PokemonComponent
+          }
+        ],
       },
       {
         path:'comprar',

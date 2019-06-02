@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BuscarCajeroService } from 'src/app/servicios/buscar-cajero/buscar-cajero.service';
 
 
@@ -14,11 +14,26 @@ export class EntrenadorComponent implements OnInit {
 
   constructor(private readonly _buscarService:BuscarCajeroService,
     private readonly _activatedRoute:ActivatedRoute,
-    private readonly _auth:AuthService
-    ) { }
-  nombreCajero;
-  ngOnInit() {
+    private readonly _auth:AuthService,
+    private readonly _router:Router
 
+    ) { }
+
+    
+  nombreCajero;
+  ocultar=false;
+  nombreRutaEntrenador;
+  rutaPokemon;
+  crearPokemon(nombre){
+    this.ocultar = true;
+    this.rutaPokemon=['/menu',this._auth.nombreCajeroLogin,'entrenador',nombre,'pokemon'];
+    this._router.navigate(this.rutaPokemon);
+  }
+
+  
+
+  ngOnInit() {  
+    console.log(this.nombreBuscarEntrenador);
   }
   mostrar=false;
   nombreEntrenador;
@@ -27,24 +42,47 @@ export class EntrenadorComponent implements OnInit {
   numeroMedallasEntrenador;
   campeonEntrenador;
   arregloEntrenador;
-
+  
   mostrarFormularioEntrenador(evento){
     this.mostrar = evento;
   }
 
+  ver=true;
+  bandera=false;
   crearEntrenador(){
     const nombreABuscar = this._auth.nombreCajeroLogin;
     const respuesta = this._buscarService.buscarCajero(nombreABuscar);
-    console.log(respuesta.arreglo.arregloEntrenador.push(
-      {
-        nombreEntrenador: this.nombreEntrenador,
-        apellidoEntrenador: this.apellidoEntrenador,
-        fechaNacimiento: this.fechaEntrenador,
-        numeroMedallas: this.numeroMedallasEntrenador,
-        campeonActual: this.campeonEntrenador,   
+    const respuestaBuscar = respuesta.arreglo.arregloEntrenador.find(
+      (valor)=>{
+        if(valor.nombreEntrenador === this.nombreEntrenador){
+            this.bandera= true;
+            return true;
+        }else{
+          this.bandera= false;
+          return false;
+        };
       }
-    ));
-    this.arregloEntrenador = respuesta.arreglo.arregloEntrenador;
+    )
+
+      if(this.bandera === true){
+        alert('YA EXISTE ESE ENTRENADOR');
+      }else{
+        console.log(respuesta.arreglo.arregloEntrenador.push(
+          {
+            nombreEntrenador: this.nombreEntrenador,
+            apellidoEntrenador: this.apellidoEntrenador,
+            fechaNacimiento: this.fechaEntrenador,
+            numeroMedallas: this.numeroMedallasEntrenador,
+            campeonActual: this.campeonEntrenador, 
+            arregloPokemon:[
+              {
+              } 
+            ] 
+          }
+        ));
+        this.arregloEntrenador = respuesta.arreglo.arregloEntrenador;
+      }
+    
   }
 
 
@@ -55,22 +93,45 @@ export class EntrenadorComponent implements OnInit {
     if(this.nombreBuscarEntrenador){
       const respuesta = this.arregloEntrenador.find(
         (valor)=>{
-          console.log('valor',valor.nombreEntrenador)
+  
           return valor.nombreEntrenador ===  this.nombreBuscarEntrenador;
         }
       );
       this.arregloBuscado=respuesta;
-      console.log(this.arregloBuscado);
+  
       this.esconder= evento;
     }else{
-      console.log('entro');
+    
       this.esconder = false;
       this.arregloEntrenador; 
   }
   }
 
-  eliminarEntrenador(){
-    
+  indiceEliminar;
+  eliminarEntrenador(nombreAEliminar){
+    const respuesta = this.arregloEntrenador.forEach(
+      (valor,indice)=>{
+         if(valor.nombreEntrenador === nombreAEliminar){
+            this.indiceEliminar = indice;
+        }
+      });
+
+      this.arregloEntrenador.splice(this.indiceEliminar,1);
+
+  }
+
+  eliminarEntrenadorBusqueda(nombreAEliminar){
+    delete(this.arregloBuscado);
+    const respuesta = this.arregloEntrenador.forEach(
+      (valor,indice)=>{
+         if(valor.nombreEntrenador === nombreAEliminar){
+            this.indiceEliminar = indice;
+        }
+      });
+
+      this.arregloEntrenador.splice(this.indiceEliminar,1);
   }
  
+
+  
 }

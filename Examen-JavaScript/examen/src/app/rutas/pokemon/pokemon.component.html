@@ -1,0 +1,102 @@
+<h1>POKEMON</h1>
+<div class="formulario-general-buscar" [hidden]="mostrar">
+    <div class="row formulario-login-row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 formulario-login">
+          <form  
+          #formularioGeneral = "ngForm" 
+          (submit)="buscarPokemon(true)"
+          > 
+              <div class="form-group">
+                <input id="nombreBuscarPokemon" type="text" name="nombre-buscar-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreBuscarPokemon">
+              </div>
+              <button type="submit" class="btn btn-primary">BUSCAR</button>
+            </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+  
+  <div class="tabla" [hidden]="mostrar">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">NUMERO POKEMON</th>
+          <th scope="col">NOMBRE POKEMON</th>
+          <th scope="col">PODER ESPECIAL I</th>
+          <th scope="col">PODER ESPECIAL II</th>
+          <th scope="col">FECHA</th>
+          <th scope="col">NIVEL</th>
+          <th scope="col">ENTRENADOR</th>
+          <th scope="col">ACCION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pokemon of arregloPokemonP" [hidden]="esconder">
+          <th scope="row">{{pokemon.numeroPokemon}}</th>
+          <td>{{pokemon.nombrePokemon}}</td>
+          <td>{{pokemon.poderEspecialUno}}</td>
+          <td>{{pokemon.poderEspecialDos}}</td>
+          <td>{{pokemon.fechaCaptura}}</td>
+          <td>{{pokemon.nivel}}</td>
+          <td *ngIf="arregloPokemonE" >{{arregloPokemonE.nombreEntrenador}}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="eliminarPokemon(pokemon.nombrePokemon)">ELIMINAR</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="arregloPokemonBuscar" [hidden]="!esconder">
+            <th scope="row">{{arregloPokemonBuscar.numeroPokemon}}</th>
+            <td>{{arregloPokemonBuscar.nombrePokemon}}</td>
+            <td>{{arregloPokemonBuscar.poderEspecialUno}}</td>
+            <td>{{arregloPokemonBuscar.poderEspecialDos}}</td>
+            <td>{{arregloPokemonBuscar.fechaCaptura}}</td>
+            <td>{{arregloPokemonBuscar.nivel}}</td>
+            <td *ngIf="arregloPokemonE" >{{arregloPokemonE.nombreEntrenador}}</td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="eliminarPokemon(arregloPokemonBuscar.nombrePokemon)">ELIMINAR</button>
+            </td>
+          </tr>
+
+      </tbody>
+    </table>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" (click)="mostrarFormularioPokemon(true)" [hidden]="mostrar" >CREAR POKEMON</button>
+  
+
+  <div class="formulario-pokemon" [hidden]="!mostrar">
+      <div class="row formulario-login-row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 formulario-login">
+            <form  
+            #formularioEntrenador = "ngForm" 
+            (submit)="crearPokemon()"> 
+                <div class="form-group">
+                  <label for="numeroPokemon">NUMERO POKEMON</label>
+                  <input id="numeroPokemon" type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroPokemon">
+                  
+                  <label for="nombrePokemon">NOMBRE POKEMON</label>
+                  <input id="nombrePokemon" type="text" name="nombre-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombrePokemon">
+  
+                  <label for="poder1">PODER ESPECIAL I</label>
+                  <input id="poder1" type="text" name="poder-1" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="poder1">
+  
+                  <label for="poder2">PODER ESPECIAL II</label>
+                  <input id="poder2" type="text" name="poder2" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="poder2">
+  
+                  <label for="fechaPokemon">FECHA CAPTURA</label>
+                  <input id="fechaPokemon" type="date" name="fecha-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaPokemon">
+
+                  <label for="nivelPokemon">NIVEL POKEMON</label>
+                  <input id="nivelPokemon" type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nivelPokemon">
+
+                </div>
+                <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioPokemon(false)">CREAR POKEMON</button>
+              </form>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  
+
