@@ -18,7 +18,7 @@
 
 <button type="submit" class="btn btn-primary" (click)="mostrarFormularioEntrenador(true)" [hidden]="mostrar" >CREAR</button>
 
-<div class="formulario-entrenador" [hidden]="mostrar">
+<div class="formulario-entrenador" [hidden]="!mostrar">
     <div class="row formulario-login-row">
       <div class="col-md-3"></div>
       <div class="col-md-6 formulario-login">
@@ -26,19 +26,19 @@
           #formularioEntrenador = "ngForm" 
           (submit)="login()"> 
               <div class="form-group">
-                <label for="nombreEntrenador">Nombre Cajero</label>
+                <label for="nombreEntrenador">Nombre Entrenador</label>
                 <input id="nombreEntrenador" type="text" name="nombre-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreEntrenador">
                 
-                <label for="apellidoEntrenador">Nombre Cajero</label>
+                <label for="apellidoEntrenador">Apellido Entrenador</label>
                 <input id="apellidoEntrenador" type="text" name="apellido-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="apellidoEntrenador">
 
-                <label for="fechaEntrenador">Nombre Cajero</label>
-                <input id="fechaEntrenador" type="text" name="fecha-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaEntrenador">
+                <label for="fechaEntrenador">Fecha Nacimiento</label>
+                <input id="fechaEntrenador" type="date" name="fecha-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaEntrenador">
 
-                <label for="numeroMedallasEntrenador">Nombre Cajero</label>
-                <input id="numeroMedallasEntrenado" type="text" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroMedallasEntrenado">
+                <label for="numeroMedallasEntrenador">Numero Medallas</label>
+                <input id="numeroMedallasEntrenado" type="number" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroMedallasEntrenado">
 
-                <label for="campeonEntrenador">Nombre Cajero</label>
+                <label for="campeonEntrenador">Campeon?</label>
                 <input id="campeonEntrenador" type="text" name="campeon-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="campeonEntrenadorr">
               </div>
               <button type="submit" class="btn btn-primary">CREAR ENTRENADOR</button>
