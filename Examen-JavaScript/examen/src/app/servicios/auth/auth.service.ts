@@ -1,0 +1,57 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReturnStatement } from '@angular/compiler';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  estaLogeado: boolean = false;
+  
+  arregloNombresCajero=[];
+
+  constructor(private readonly _router:Router) { }
+  login(nombreCajero:string){
+    console.log('arreglo login',this.arregloNombresCajero);
+    console.log('repuesta metodo',this.buscarNombreCajero(nombreCajero));
+    if(this.buscarNombreCajero(nombreCajero)){
+      console.log('arreglo en aut',this.arregloNombresCajero)
+      this.estaLogeado = true;
+      const url = ['/menu',nombreCajero];
+      this._router.navigate(url);
+      return true;
+    }else{
+      const url = ['/guardar'];
+      this._router.navigate(url);
+      this.estaLogeado = false;
+      return false;
+    }
+  }
+
+  buscarNombreCajero(nombreABuscar):boolean{
+    if(this.arregloNombresCajero.length === 0){
+        return false;
+    }else{
+      const respuestaFind = this.arregloNombresCajero.find(
+        (valor):boolean=>{
+           if(valor === nombreABuscar){
+            return true;
+           }else{
+             return false;
+           };
+        }
+      );
+      return respuestaFind;
+    }
+  }
+
+  
+  logout(){
+    this.estaLogeado = false;
+    const url = ['/login'];
+    this._router.navigate(url);
+  }
+
+}
+
