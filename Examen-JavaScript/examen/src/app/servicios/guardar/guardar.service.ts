@@ -19,7 +19,27 @@ export class GuardarService {
       this._auth.arregloNombresCajero.push(
         {
           nombreCajero: nuevoNombre,
-        });
+          arregloEntrenador:[
+            {
+            nombreEntrenador:'',
+            apellidoEntrenador:'',
+            fechaNacimiento:new Date,
+            numeroMedallas: 0,
+            campeonActual: true,   
+            arregloPokemon:[
+                {
+                numeroPokemon: 0,
+                nombrePokemon:'',  
+                poderEspecialUno:'' ,
+                poderEspecialDos:'',
+                fechaCaptura: new Date,  
+                nivel: 0,
+                }
+            ],
+            }
+        ]
+        }
+      );
       console.log('guarda',this._auth.arregloNombresCajero);
       const url = ['/login'];
       this._route.navigate(url);

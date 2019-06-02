@@ -5,9 +5,10 @@
     <div class="col-md-6 formulario-login">
         <form  
         #formularioGeneral = "ngForm" 
-        (submit)="login()"> 
+        (submit)="buscarEntrenador(true)"
+        > 
             <div class="form-group">
-              <input id="nombreBuscar" type="text" name="nombre-buscar" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreBuscar">
+              <input id="nombreBuscarEntrenador" type="text" name="nombre-buscar-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreBuscarEntrenador">
             </div>
             <button type="submit" class="btn btn-primary">BUSCAR</button>
           </form>
@@ -16,7 +17,48 @@
   </div>
 </div>
 
+<div class="tabla" [hidden]="mostrar">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">APELLIDO</th>
+        <th scope="col">FECHA</th>
+        <th scope="col">MEDALLAS</th>
+        <th scope="col">CAMPEON</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrenador of arregloEntrenador" [hidden]="esconder">
+        <th scope="row">{{entrenador.nombreEntrenador}}</th>
+        <td>{{entrenador.apellidoEntrenador}}</td>
+        <td>{{entrenador.fechaNacimiento}}</td>
+        <td>{{entrenador.numeroMedallas}}</td>
+        <td>{{entrenador.campeonActual}}</td>
+        <td>
+          <button type="submit" class="btn btn-primary" (click)="eliminarEntrenador()">ELIMINAR</button>
+          <button type="submit" class="btn btn-primary" (click)="crearPokemon()">POKEMON</button>
+        </td>
+      </tr>
+      <tr *ngIf="arregloBuscado" [hidden]="!esconder">
+          <th scope="row">{{ arregloBuscado.nombreEntrenador}}</th>
+          <td>{{arregloBuscado.apellidoEntrenador}}</td>
+          <td>{{arregloBuscado.fechaNacimiento}}</td>
+          <td>{{arregloBuscado.numeroMedallas}}</td>
+          <td>{{arregloBuscado.campeonActual}}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="eliminarEntrenador()">ELIMINAR</button>
+            <button type="submit" class="btn btn-primary" (click)="crearPokemon()">POKEMON</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  
+</div>
+
 <button type="submit" class="btn btn-primary" (click)="mostrarFormularioEntrenador(true)" [hidden]="mostrar" >CREAR</button>
+
 
 <div class="formulario-entrenador" [hidden]="!mostrar">
     <div class="row formulario-login-row">
@@ -24,7 +66,7 @@
       <div class="col-md-6 formulario-login">
           <form  
           #formularioEntrenador = "ngForm" 
-          (submit)="login()"> 
+          (submit)="crearEntrenador()"> 
               <div class="form-group">
                 <label for="nombreEntrenador">Nombre Entrenador</label>
                 <input id="nombreEntrenador" type="text" name="nombre-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreEntrenador">
@@ -36,12 +78,14 @@
                 <input id="fechaEntrenador" type="date" name="fecha-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaEntrenador">
 
                 <label for="numeroMedallasEntrenador">Numero Medallas</label>
-                <input id="numeroMedallasEntrenado" type="number" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroMedallasEntrenado">
+                <input id="numeroMedallasEntrenado" type="number" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroMedallasEntrenador">
 
-                <label for="campeonEntrenador">Campeon?</label>
-                <input id="campeonEntrenador" type="text" name="campeon-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="campeonEntrenadorr">
+                <label for="campeonEntrenador">Campeón Actual?</label><br>
+                <input id="campeonEntrenador" type="radio" name="campeon-entrenador" [(ngModel)]="campeonEntrenador" value="true"> SI<br>
+                <input id="campeonEntrenador" type="radio" name="campeon-entrenador"  [(ngModel)]="campeonEntrenador" value="false"> NO<br>
+
               </div>
-              <button type="submit" class="btn btn-primary">CREAR ENTRENADOR</button>
+              <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioEntrenador(false)">CREAR ENTRENADOR</button>
             </form>
       </div>
       <div class="col-md-3"></div>

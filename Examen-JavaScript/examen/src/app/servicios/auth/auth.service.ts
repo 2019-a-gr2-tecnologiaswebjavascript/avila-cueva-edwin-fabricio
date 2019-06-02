@@ -10,12 +10,15 @@ export class AuthService {
   estaLogeado: boolean = false;
   
   arregloNombresCajero:Cajero[] = [];
+  nombreCajeroLogin;
 
   constructor(private readonly _router:Router) { }
   login(nombreCajero:string){
     console.log('arreglo login',this.arregloNombresCajero);
     console.log('repuesta metodo',this.buscarNombreCajero(nombreCajero));
     if(this.buscarNombreCajero(nombreCajero)){
+      this.nombreCajeroLogin = nombreCajero;
+      console.log('nombreee',this.nombreCajeroLogin);
       console.log('arreglo en aut',this.arregloNombresCajero)
       this.estaLogeado = true;
       const url = ['/menu',nombreCajero];
