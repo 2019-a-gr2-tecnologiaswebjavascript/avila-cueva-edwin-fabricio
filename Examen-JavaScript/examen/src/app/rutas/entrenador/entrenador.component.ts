@@ -11,5 +11,9 @@ export class EntrenadorComponent implements OnInit {
 
   ngOnInit() {
   }
+  mostrar=false;
 
+  mostrarFormularioEntrenador(evento){
+    this.mostrar = true;
+  }
 }

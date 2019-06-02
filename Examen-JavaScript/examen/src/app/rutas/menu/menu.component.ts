@@ -13,7 +13,9 @@ export class MenuComponent implements OnInit {
 
 
   nombreCajero;
- 
+  rutaEntrenador;
+  rutaComprar;
+  mostrar=false;
 
   ngOnInit() {
       //parametros de RUTA .params
@@ -26,6 +28,8 @@ export class MenuComponent implements OnInit {
       (parametros)=>{//cuando las cosads estan bien ->try
         console.log('Parametros:',parametros.nombre);
         this.nombreCajero = parametros.nombre;
+        this.rutaEntrenador=['/menu',this.nombreCajero,'entrenador'];
+        this.rutaComprar = ['/menu',this.nombreCajero,'comprar'];
       },
       (error)=>{ //cuando las cosas estan mal ->catch
         console.log('Error',error);
@@ -38,11 +42,9 @@ export class MenuComponent implements OnInit {
 
   }
 
-
-  
-  administrarGrupos(){
-    const url = ['/menu','entrenador'];
-    this._route.navigate(url);
+  mostrarBotones(evento){
+    this.mostrar= evento;
   }
+ 
 
 }

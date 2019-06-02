@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReturnStatement } from '@angular/compiler';
+import { Cajero } from 'src/app/interfaces/nombre-cajero';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class AuthService {
 
   estaLogeado: boolean = false;
   
-  arregloNombresCajero=[];
+  arregloNombresCajero:Cajero[] = [];
 
   constructor(private readonly _router:Router) { }
   login(nombreCajero:string){
@@ -29,13 +29,13 @@ export class AuthService {
     }
   }
 
-  buscarNombreCajero(nombreABuscar):boolean{
+  buscarNombreCajero(nombreABuscar){
     if(this.arregloNombresCajero.length === 0){
         return false;
     }else{
       const respuestaFind = this.arregloNombresCajero.find(
         (valor):boolean=>{
-           if(valor === nombreABuscar){
+           if(valor.nombreCajero === nombreABuscar){
             return true;
            }else{
              return false;

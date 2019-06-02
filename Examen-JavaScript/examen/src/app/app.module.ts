@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './rutas/menu/menu.component';
 import { GuardarService } from './servicios/guardar/guardar.service';
 import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
+import { ComprarComponent } from './rutas/comprar/comprar.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
     RutaNoEncontradaComponent,
     MenuComponent,
     EntrenadorComponent,
+    ComprarComponent,
   ],
   imports: [
     BrowserModule,

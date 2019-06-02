@@ -16,7 +16,10 @@ export class GuardarService {
       const url = ['/login'];
       this._route.navigate(url);
     }else{
-      this._auth.arregloNombresCajero.push(nuevoNombre);
+      this._auth.arregloNombresCajero.push(
+        {
+          nombreCajero: nuevoNombre,
+        });
       console.log('guarda',this._auth.arregloNombresCajero);
       const url = ['/login'];
       this._route.navigate(url);
