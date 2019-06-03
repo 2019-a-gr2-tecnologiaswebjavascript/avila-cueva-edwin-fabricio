@@ -91,7 +91,7 @@ export class ComprarComponent implements OnInit {
     const arregloCarrito={
       nombreEntrenador:nombreEntrenadorItem,
     }
-    //const respuestaCarrito = this._carritoService.eliminarDelCarrito(arregloCarrito);
+    const respuestaCarrito = this._carritoService.eliminarDelCarrito(arregloCarrito);
   }
   
 

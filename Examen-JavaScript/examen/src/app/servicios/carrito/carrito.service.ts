@@ -50,28 +50,20 @@ export class CarritoService {
                 if(item.nombreEntrenador == identificador){
                     indiceItem = indice;
                     return true;
-                }else{
-                    return false;
                 }
-                
             }
         )
         if(existeElItem){
-            this.quitarContador(indiceItem);
-           
-        }else{
-            this.quitarDelCarrito(arreglo);
+            this.quitarContador(indiceItem);  
         }
         console.log('Se añadio al carrito',arreglo);
         return this.carritoCompras;
-
     }
 
     private quitarContador(indice){
         this.carritoCompras[indice].cantidad--;
-    }
-    private quitarDelCarrito(item){
-        item.cantidad = 1;
-        this.carritoCompras.splice(0,0,item);
+        if(this.carritoCompras[indice].cantidad === 0){
+            this.carritoCompras.splice(indice,1);
+        }
     }
 }
