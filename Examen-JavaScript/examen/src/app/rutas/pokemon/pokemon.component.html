@@ -27,6 +27,7 @@
           <th scope="col">PODER ESPECIAL II</th>
           <th scope="col">FECHA</th>
           <th scope="col">NIVEL</th>
+          <th scope="col">COSTO</th>
           <th scope="col">ENTRENADOR</th>
           <th scope="col">ACCION</th>
         </tr>
@@ -39,6 +40,7 @@
           <td>{{pokemon.poderEspecialDos}}</td>
           <td>{{pokemon.fechaCaptura}}</td>
           <td>{{pokemon.nivel}}</td>
+          <td>{{pokemon.costo}}</td>
           <td *ngIf="arregloPokemonE" >{{arregloPokemonE.nombreEntrenador}}</td>
           <td>
             <button type="submit" class="btn btn-primary" (click)="eliminarPokemon(pokemon.nombrePokemon)">ELIMINAR</button>
@@ -52,6 +54,7 @@
             <td>{{arregloPokemonBuscar.poderEspecialDos}}</td>
             <td>{{arregloPokemonBuscar.fechaCaptura}}</td>
             <td>{{arregloPokemonBuscar.nivel}}</td>
+            <td>{{arregloPokemonBuscar.costo}}</td>
             <td *ngIf="arregloPokemonE" >{{arregloPokemonE.nombreEntrenador}}</td>
             <td>
               <button type="submit" class="btn btn-primary" (click)="eliminarPokemon(arregloPokemonBuscar.nombrePokemon)">ELIMINAR</button>
@@ -91,6 +94,9 @@
                   <label for="nivelPokemon">NIVEL POKEMON</label>
                   <input id="nivelPokemon" type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nivelPokemon">
 
+                  <label for="costo">Costo</label>
+                  <input id="costo" type="number" name="costo" class="form-control"  placeholder="Ingrese Costo" [(ngModel)]="costo" >
+  
                 </div>
                 <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioPokemon(false)">CREAR POKEMON</button>
               </form>

@@ -6,7 +6,7 @@ export interface Cajero{
         apellidoEntrenador?:string,
         fechaNacimiento?:Date,
         numeroMedallas?: number,
-        campeonActual?: boolean,   
+        campeonActual?: boolean, 
         arregloPokemon?:[
             {
             }

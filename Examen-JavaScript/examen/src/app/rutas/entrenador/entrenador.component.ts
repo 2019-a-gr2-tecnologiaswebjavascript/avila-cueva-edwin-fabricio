@@ -65,6 +65,7 @@ export class EntrenadorComponent implements OnInit {
   fechaEntrenador;
   numeroMedallasEntrenador;
   campeonEntrenador;
+  costo;
   
   mostrarFormularioEntrenador(evento){
     this.mostrar = evento;

@@ -1,4 +1,5 @@
-<button type="submit" class="btn btn-primary"  (click)="mostrarBotones(true)" [hidden]="mostrar">Administrar Grupo</button>
-<button type="submit" class="btn btn-primary" (click)="mostrarBotones(true)" [hidden]="mostrar">Revisar Compras</button>
-<button type="submit" class="btn btn-primary" [routerLink]="rutaComprar" (click)="mostrarBotones(true)" [hidden]="mostrar">Comprar</button>
-<router-outlet></router-outlet>
+<button type="submit" class="btn btn-primary"  (click)="mostrarBotonesAdministrar(true)" [hidden]="mostrar">Administrar Grupo</button>
+<button type="submit" class="btn btn-primary" (click)="mostrarBotonesComprar(true)" [hidden]="mostrar">Comprar</button>
+<button type="submit" class="btn btn-primary" (click)="mostrarBotonesRevisar(true)" [hidden]="mostrar">Revisar Compras</button>
+<router-outlet ></router-outlet>
+<button  class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarMenu()">MENU</button>

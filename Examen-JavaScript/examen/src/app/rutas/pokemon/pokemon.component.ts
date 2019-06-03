@@ -55,12 +55,37 @@ export class PokemonComponent implements OnInit {
   arregloPokemonP;
   arregloPokemonE;
   nombreBuscarPokemon;
-
-  mostrarFormularioPokemon(evento){
-    this.mostrar = evento;
-
-  }
+  costo:number;
+  costoAux;
+  costoTotal:number = 0;
   
+  mostrarFormularioPokemon(evento){
+    //this.costoAux=this.costo;
+    this.mostrar = evento;
+    if(this.costoAux  === undefined){
+      this.costoAux  = 0;
+    }
+    if(this.mostrar === false){
+      //this.costoTotal += this.costoAux; 
+      const respuesta={
+        costoTotal:this.costo,
+        nombreEntrenador:this.nombreEntrenador,   
+      };
+
+      const respuestaBuscar = this._buscarService.buscarValorNombre(respuesta.nombreEntrenador);
+      if(respuestaBuscar === undefined){
+        this._buscarService.arregloCosto.push(respuesta);
+      }else {
+        respuestaBuscar.costoTotal += respuesta.costoTotal;
+      }
+      console.log('ver valor',this._buscarService.arregloCosto);
+     
+    }
+    
+  }
+
+
+
   bandera=false;
   crearPokemon(){
     this.arregloPokemonP.find(
@@ -86,6 +111,7 @@ export class PokemonComponent implements OnInit {
             poderEspecialdos:this.poder2,
             fechaCaptura: this.fechaPokemon ,
             nivel: this.nivelPokemon,
+            costo: this.costo,
           }
         ));
       }
@@ -113,4 +139,6 @@ export class PokemonComponent implements OnInit {
       this.arregloPokemonP.splice(this.indiceEliminar,1);
       console.log(this.arregloPokemonP);
   }
+
+
 }

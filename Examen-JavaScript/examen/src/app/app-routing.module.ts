@@ -8,6 +8,7 @@ import { MenuComponent } from './rutas/menu/menu.component';
 import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
 import { ComprarComponent } from './rutas/comprar/comprar.component';
 import { PokemonComponent } from './rutas/pokemon/pokemon.component';
+import { RevisarComponent } from './rutas/revisar/revisar.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
       {
         path:'comprar',
         component:ComprarComponent
+      }
+      ,
+      {
+        path:'revisar',
+        component:RevisarComponent
       }
     ]
   },

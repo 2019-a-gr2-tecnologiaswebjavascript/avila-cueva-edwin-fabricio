@@ -14,6 +14,7 @@ import { GuardarService } from './servicios/guardar/guardar.service';
 import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
 import { ComprarComponent } from './rutas/comprar/comprar.component';
 import { PokemonComponent } from './rutas/pokemon/pokemon.component';
+import { RevisarComponent } from './rutas/revisar/revisar.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PokemonComponent } from './rutas/pokemon/pokemon.component';
     EntrenadorComponent,
     ComprarComponent,
     PokemonComponent,
+    RevisarComponent,
   ],
   imports: [
     BrowserModule,

@@ -59,5 +59,32 @@ export class BuscarCajeroService {
       return respuestaFind;
   }
 
-  
+  buscarPokemonPorNombreEntrenador(arreglo,nombreEntrenador){
+    const respuestaFind = arreglo.find(
+      (valor)=>{
+        return valor.nombreEntrenador === nombreEntrenador;
+      }
+    )
+      return respuestaFind;
+  }
+  arregloCosto=[
+    {
+      costoTotal:0,
+      nombreEntrenador:"",
+    }
+  ];
+
+  buscarValorNombre(nombre){
+    console.log(nombre);
+    const respuesta = this.arregloCosto.find(
+      (valor)=>{
+        
+        return valor.nombreEntrenador === nombre;
+      }
+    )
+    return respuesta;
+
+  }
+ 
+
 }
