@@ -1,4 +1,23 @@
 <h1>FACTURA</h1>
+
+<div class="formulario-general-buscar">
+  <div class="row formulario-login-row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 formulario-login">
+        <form  
+        #formularioGeneral = "ngForm" 
+        (submit)="buscarNombre(true)"
+        > 
+            <div class="form-group">
+              <input id="nombreBuscarEntrenador" type="text" name="nombre-buscar-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreABuscar">
+            </div>
+            <button type="submit" class="btn btn-primary">BUSCAR</button>
+          </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
 <div class="tabla" [hidden]="mostrar">
   <table class="table">
     <thead class="thead-dark">
@@ -10,6 +29,16 @@
     </thead>
     <tbody>
       <tr *ngFor="let factura of arregloFacturas" [hidden]="esconder">
+        <th scope="row">{{factura.nombreCajeroFact}}</th>
+        <td>{{factura.nombreComprador}}</td>
+        <td>{{factura.total}}</td>
+      </tr>
+      <tr *ngFor="let factura of arregloBusquedaCajero" [hidden]="esconder">
+        <th scope="row">{{factura.nombreCajeroFact}}</th>
+        <td>{{factura.nombreComprador}}</td>
+        <td>{{factura.total}}</td>>
+      </tr>
+      <tr *ngFor="let factura of arregloBusquedaUsuario" [hidden]="!ver">
         <th scope="row">{{factura.nombreCajeroFact}}</th>
         <td>{{factura.nombreComprador}}</td>
         <td>{{factura.total}}</td>>
