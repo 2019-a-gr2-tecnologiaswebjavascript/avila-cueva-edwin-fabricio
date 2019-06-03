@@ -1,45 +1,62 @@
 <div class="row">
-  <div class="col-md-6">
-      <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="nombreUsuario">Nombre</label>
-              <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese nombre">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="cedula">RUC/CÉDULA</label>
-              <input type="text" class="form-control" id="cedula" placeholder="RUC/CÉDULA">
-            </div>
-          </div>
-          <div class="form-row">
+    <div class="col-md-6">
+        <form>
+            <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="direccion">Dirección</label>
-                <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                <label for="nombreUsuario">Nombre</label>
+                <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese nombre">
               </div>
               <div class="form-group col-md-6">
-                <label for="telefono">Teléfono</label>
-                <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
+                <label for="cedula">RUC/CÉDULA</label>
+                <input type="text" class="form-control" id="cedula" placeholder="RUC/CÉDULA">
               </div>
             </div>
-          <div class="form-group">
-            <label for="correo">Correo</label>
-            <input type="email" class="form-control" id="correo" placeholder="example@example.com">
-          </div>
-          <button type="submit" class="btn btn-primary">FINALIZAR COMPRA</button>
-      </form>
-  </div>
-  <div class="col-md-6">
-    <p>NOMBRE CAJERO: {{nombreCajero}}</p>
-    <label for="total">Correo</label>
-    <input type="text" class="form-control" id="total" disabled=>
-    <div class="row" *ngFor="let entrenador of arregloEntrenadores">
-        <div class="col-md-3">
-          <p>{{entrenador.nombreEntrenador}}
-            <button (click)="listarProductos(entrenador.nombreEntrenador)">VER</button>
-          </p>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="direccion">Dirección</label>
+                  <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="telefono">Teléfono</label>
+                  <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="correo">Correo</label>
+              <input type="email" class="form-control" id="correo" placeholder="example@example.com">
+            </div>
+
+            <div>
+                <div class="row" *ngFor="let entrenador of arregloEntrenadores">
+                    <div class="col-md-3">
+                      <p>{{entrenador.nombreEntrenador}}
+                        <button (click)="listarProductos(entrenador.nombreEntrenador)">VER</button>
+                        <button (click)="agregarCarrito(entrenador.nombreEntrenador)">COMPRAR</button>
+                      </p>
+                    </div>
+                </div>
+                  <p [hidden]="ver">{{costoTotal}}</p>
+                  <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">FINALIZAR COMPRA</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+      <p>NOMBRE CAJERO: {{nombreCajero}}</p>
+      <div class="col-md-2"><label for="total">TOTAL:{{totalCompra}}</label></div> 
+      <div>
+        <div class="row" *ngFor="let entrenador of arregloEntrenadores">
+            <div class="col-md-3">
+              <p>{{entrenador.nombreEntrenador}}
+                <button (click)="listarProductos(entrenador.nombreEntrenador)">VER</button>
+                <button (click)="agregarCarrito(entrenador.nombreEntrenador)">COMPRAR</button>
+              </p>
+            </div>
         </div>
-      </div>
-      <p [hidden]="ver" >{{costoTotal}}</p>
-      <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
+          <p [hidden]="ver">{{costoTotal}}</p>
+          <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
+    </div>
   </div>
-</div>
+  </div>
+  

@@ -39,8 +39,7 @@ const routes: Routes = [
       {
         path:'comprar',
         component:ComprarComponent
-      }
-      ,
+      },
       {
         path:'revisar',
         component:RevisarComponent

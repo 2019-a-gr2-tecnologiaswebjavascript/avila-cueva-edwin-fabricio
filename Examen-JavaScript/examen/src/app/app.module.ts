@@ -15,6 +15,8 @@ import { EntrenadorComponent } from './rutas/entrenador/entrenador.component';
 import { ComprarComponent } from './rutas/comprar/comprar.component';
 import { PokemonComponent } from './rutas/pokemon/pokemon.component';
 import { RevisarComponent } from './rutas/revisar/revisar.component';
+import { CarritoService } from './servicios/carrito/carrito.service';
+import { BuscarCajeroService } from './servicios/buscar-cajero/buscar-cajero.service';
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { RevisarComponent } from './rutas/revisar/revisar.component';
     FormsModule
 
   ],
-  providers: [EstaLogeadoService,AuthService,GuardarService],
+  providers: [EstaLogeadoService,AuthService,GuardarService,CarritoService,BuscarCajeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

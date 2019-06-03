@@ -21,7 +21,9 @@ export class ComprarComponent implements OnInit {
   ver=true;
   nombreEntrenador;
   arregloPokemonPorEntrenador;
-  costoTotal;
+  costoTotal:number;
+  totalCompra:number = 0;
+  arregloNombreEntrenadoresComprados=[];
 
   constructor(private readonly _activatedRoute:ActivatedRoute,
     private readonly _carritoService:CarritoService,
@@ -34,8 +36,8 @@ export class ComprarComponent implements OnInit {
     console.log('general',this.arregloContieneGeneral.arreglo.nombreCajero);
     this.arregloEntrenadores = this.arregloContieneGeneral.arreglo.arregloEntrenador;
     console.log('entrnadores',this.arregloEntrenadores);
-    this.arregloPokemons = this.arregloContieneGeneral.arreglo.arregloEntrenador[1].arregloPokemon;
-    console.log('pokemos', this.arregloPokemons)
+    //this.arregloPokemons = this.arregloContieneGeneral.arreglo.arregloEntrenador[1].arregloPokemon;
+    //console.log('pokemos', this.arregloPokemons)
 
     
   }
@@ -57,9 +59,19 @@ export class ComprarComponent implements OnInit {
     this.arregloPokemonPorEntrenador = respuesta.arregloPokemon;
   }
  
-  /*agregarCarrito(nombreEntrenadorItem){
-    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(nombreEntrenadorItem);
-  }*/
+  agregarCarrito(nombreEntrenadorItem){
+    const respuestaCosto = this._buscarService.arregloCosto.find(
+      (valor):any=>{
+        return valor.nombreEntrenador === nombreEntrenadorItem;
+      }
+    );
+    this.costoTotal = respuestaCosto.costoTotal;
+    this.totalCompra += this.costoTotal;
+
+
+    //const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(nombreEntrenadorItem);
+  }
+
   
 
 

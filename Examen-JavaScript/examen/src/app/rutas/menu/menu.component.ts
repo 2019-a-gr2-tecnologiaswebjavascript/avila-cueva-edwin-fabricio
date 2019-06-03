@@ -31,8 +31,8 @@ export class MenuComponent implements OnInit {
         this.nombreCajero = parametros.nombre;
         this.rutaMenu=['/menu',this.nombreCajero];
         this.rutaEntrenador=['/menu',this.nombreCajero,'entrenador'];
-        this.rutaComprar = ['/menu',this.nombreCajero,'comprar'];
-        this.rutaRevisar = ['/menu',this.nombreCajero,'revisar'];
+        this.rutaComprar=['/menu',this.nombreCajero,'comprar'];
+        this.rutaRevisar=['/menu',this.nombreCajero,'revisar'];
       },
       (error)=>{ //cuando las cosas estan mal ->catch
         console.log('Error',error);
@@ -51,12 +51,12 @@ export class MenuComponent implements OnInit {
   }
 
   mostrarBotonesComprar(evento){
-    this.mostrar= evento;
+    this.mostrar=evento;
     this._router.navigate(this.rutaComprar);
   }
 
   mostrarBotonesRevisar(evento){
-    this.mostrar= evento;
+    this.mostrar=evento;
     this._router.navigate(this.rutaRevisar);
   }
   mostrarMenu(evento){
