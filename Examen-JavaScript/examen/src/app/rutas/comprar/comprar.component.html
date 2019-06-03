@@ -27,16 +27,14 @@
             </div>
 
             <div>
-                <div class="row" *ngFor="let entrenador of arregloEntrenadores">
+                <div class="row" *ngFor="let item of arregloCarrito">
                     <div class="col-md-3">
-                      <p>{{entrenador.nombreEntrenador}}
-                        <button (click)="listarProductos(entrenador.nombreEntrenador)">VER</button>
-                        <button (click)="agregarCarrito(entrenador.nombreEntrenador)">COMPRAR</button>
+                      <p>{{item.nombreEntrenador}}
+                        <button (click)="eliminarCarrito(item.nombreEntrenador)">QUITAR</button>
                       </p>
+                      <p>{{item.cantidad}}</p>
                     </div>
                 </div>
-                  <p [hidden]="ver">{{costoTotal}}</p>
-                  <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
             </div>
 
             <button type="submit" class="btn btn-primary">FINALIZAR COMPRA</button>

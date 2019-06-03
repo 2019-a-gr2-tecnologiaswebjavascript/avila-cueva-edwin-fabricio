@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   rutaMenu;
   rutaRevisar;
   mostrar=false;
-
+  condicion=true;
   ngOnInit() {
       //parametros de RUTA .params
     const parametros$ = this._activatedRoute.params;
@@ -48,11 +48,13 @@ export class MenuComponent implements OnInit {
   mostrarBotonesAdministrar(evento){
     this.mostrar= evento;
     this._router.navigate(this.rutaEntrenador);
+    this.condicion= false; 
   }
 
   mostrarBotonesComprar(evento){
     this.mostrar=evento;
     this._router.navigate(this.rutaComprar);
+    this.condicion= true; 
   }
 
   mostrarBotonesRevisar(evento){

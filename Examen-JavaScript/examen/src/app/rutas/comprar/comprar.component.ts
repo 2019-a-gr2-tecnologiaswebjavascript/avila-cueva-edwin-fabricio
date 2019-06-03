@@ -24,7 +24,8 @@ export class ComprarComponent implements OnInit {
   costoTotal:number;
   totalCompra:number = 0;
   arregloNombreEntrenadoresComprados=[];
-
+  arregloCarrito;
+  
   constructor(private readonly _activatedRoute:ActivatedRoute,
     private readonly _carritoService:CarritoService,
     private readonly _buscarService:BuscarCajeroService,
@@ -67,11 +68,31 @@ export class ComprarComponent implements OnInit {
     );
     this.costoTotal = respuestaCosto.costoTotal;
     this.totalCompra += this.costoTotal;
-
-
-    //const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(nombreEntrenadorItem);
+    const arregloCarrito={
+      nombreEntrenador:nombreEntrenadorItem,
+    }
+    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(arregloCarrito);
+    console.log('carito de comra',this._carritoService.carritoCompras);
+    this.arregloCarrito=this._carritoService.carritoCompras;
   }
 
+  eliminarCarrito(nombreEntrenadorItem){
+    const respuestaCosto = this._buscarService.arregloCosto.find(
+      (valor):any=>{
+        return valor.nombreEntrenador === nombreEntrenadorItem;
+      }
+    );
+    this.costoTotal = respuestaCosto.costoTotal;
+    this.totalCompra -= this.costoTotal;
+    if(this.totalCompra === 0){
+      this.totalCompra=0;
+      alert('NO TIENES NADA EN EL CARRO');
+    }
+    const arregloCarrito={
+      nombreEntrenador:nombreEntrenadorItem,
+    }
+    //const respuestaCarrito = this._carritoService.eliminarDelCarrito(arregloCarrito);
+  }
   
 
 

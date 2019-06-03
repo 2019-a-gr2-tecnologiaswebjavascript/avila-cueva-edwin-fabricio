@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ItemCarritoCompras } from 'src/app/interfaces/item-carrito';
 
 @Injectable({
   providedIn: 'root'
@@ -7,15 +8,14 @@ export class CarritoService {
 
   constructor() { }
 
-  carritoCompras= [];
+  carritoCompras:ItemCarritoCompras[]=[];
     
-    agregarCarritoDeCompras(itemCarrito){
-        const identificador = itemCarrito.nombreEntrenador;
-        const identificadorNombreTienda = itemCarrito.nombreTienda;
+    agregarCarritoDeCompras(arreglo){
+        const identificador = arreglo.nombreEntrenador;
         let indiceItem = -1;
         const existeElItem = this.carritoCompras.some(
             (item, indice)=>{
-                if(item.valor == identificador && item.nombreTienda == identificadorNombreTienda){
+                if(item.nombreEntrenador == identificador){
                     indiceItem = indice;
                     return true;
                 }else{
@@ -28,9 +28,9 @@ export class CarritoService {
             this.anadirAlContador(indiceItem);
            
         }else{
-            this.anadirAlCarrito(itemCarrito);
+            this.anadirAlCarrito(arreglo);
         }
-        console.log('Se añadio al carrito',itemCarrito);
+        console.log('Se añadio al carrito',arreglo);
         return this.carritoCompras;
     }
 
@@ -38,6 +38,39 @@ export class CarritoService {
         this.carritoCompras[indice].cantidad++;
     }
     private anadirAlCarrito(item){
+        item.cantidad = 1;
+        this.carritoCompras.splice(0,0,item);
+    }
+    
+    eliminarDelCarrito(arreglo){
+        const identificador = arreglo.nombreEntrenador;
+        let indiceItem = -1;
+        const existeElItem = this.carritoCompras.some(
+            (item, indice)=>{
+                if(item.nombreEntrenador == identificador){
+                    indiceItem = indice;
+                    return true;
+                }else{
+                    return false;
+                }
+                
+            }
+        )
+        if(existeElItem){
+            this.quitarContador(indiceItem);
+           
+        }else{
+            this.quitarDelCarrito(arreglo);
+        }
+        console.log('Se añadio al carrito',arreglo);
+        return this.carritoCompras;
+
+    }
+
+    private quitarContador(indice){
+        this.carritoCompras[indice].cantidad--;
+    }
+    private quitarDelCarrito(item){
         item.cantidad = 1;
         this.carritoCompras.splice(0,0,item);
     }
