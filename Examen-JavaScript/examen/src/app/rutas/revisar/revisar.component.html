@@ -1,3 +1,19 @@
-<p>
-  revisar works!
-</p>
+<h1>FACTURA</h1>
+<div class="tabla" [hidden]="mostrar">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">NOMBRE CAJERO</th>
+        <th scope="col">NOMBRE COMPRADOR</th>
+        <th scope="col">PRECIO A PAGAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of arregloFacturas" [hidden]="esconder">
+        <th scope="row">{{factura.nombreCajeroFact}}</th>
+        <td>{{factura.nombreComprador}}</td>
+        <td>{{factura.total}}</td>>
+      </tr>
+    </tbody>
+  </table>
+</div>

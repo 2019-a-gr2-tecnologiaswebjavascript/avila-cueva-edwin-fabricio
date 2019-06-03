@@ -1,31 +1,33 @@
 <div class="row">
     <div class="col-md-6">
-        <form>
-            <div class="form-row">
+        <form
+        #formularioGeneral = "ngForm" 
+        (submit)="finalizarCompra(false)"
+        >
+         <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="nombreUsuario">Nombre</label>
-                <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese nombre">
+                <input type="text" class="form-control" id="nombreUsuario" name="nombre-usuario" placeholder="Ingrese nombre" [(ngModel)]="nombreUsuario">
               </div>
               <div class="form-group col-md-6">
                 <label for="cedula">RUC/CÉDULA</label>
-                <input type="text" class="form-control" id="cedula" placeholder="RUC/CÉDULA">
+                <input type="text" class="form-control" id="cedula" name="cedula-usuario" placeholder="RUC/CÉDULA" [(ngModel)]="cedula">
               </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="direccion">Dirección</label>
-                  <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                  <input type="text" class="form-control" id="direccion" name="direccion-usuario" placeholder="Dirección" [(ngModel)]="direccion">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="telefono">Teléfono</label>
-                  <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
+                  <input type="number" class="form-control" id="telefono"  name="telefono-usuario" placeholder="Teléfono" [(ngModel)]="telefono">
                 </div>
               </div>
             <div class="form-group">
               <label for="correo">Correo</label>
-              <input type="email" class="form-control" id="correo" placeholder="example@example.com">
+              <input type="email" class="form-control" id="correo" name="correo-usuario" placeholder="example@example.com" [(ngModel)]="correo">
             </div>
-
             <div>
                 <div class="row" *ngFor="let item of arregloCarrito">
                     <div class="col-md-3">
@@ -36,7 +38,6 @@
                     </div>
                 </div>
             </div>
-
             <button type="submit" class="btn btn-primary">FINALIZAR COMPRA</button>
         </form>
     </div>

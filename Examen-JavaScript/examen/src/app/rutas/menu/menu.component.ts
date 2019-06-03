@@ -65,6 +65,8 @@ export class MenuComponent implements OnInit {
     this.mostrar=evento;
     this._router.navigate(this.rutaMenu);
   }
+
+
  
 
 }

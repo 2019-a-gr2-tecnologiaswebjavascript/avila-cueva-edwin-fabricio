@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth/auth.service';
 import { BuscarCajeroService } from 'src/app/servicios/buscar-cajero/buscar-cajero.service';
 import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
+import { FacturaService } from 'src/app/servicios/factura.service';
 
 @Component({
   selector: 'app-comprar',
@@ -25,11 +26,23 @@ export class ComprarComponent implements OnInit {
   totalCompra:number = 0;
   arregloNombreEntrenadoresComprados=[];
   arregloCarrito;
+  rutaRevisar=[];
   
+
+  //Factura
+  nombreUsuario;
+  cedula;
+  telefono;
+  direccion;
+  correo;
+
+
   constructor(private readonly _activatedRoute:ActivatedRoute,
     private readonly _carritoService:CarritoService,
     private readonly _buscarService:BuscarCajeroService,
-    private readonly _auth:AuthService) { }
+    private readonly _router:Router,
+    private readonly _auth:AuthService,
+    private readonly _factura:FacturaService) { }
 
   ngOnInit() {
     this.nombreCajero=this._auth.nombreCajeroLogin;
@@ -42,6 +55,7 @@ export class ComprarComponent implements OnInit {
 
     
   }
+
 
   listarProductos(nombre){
     const respuestaCosto = this._buscarService.arregloCosto.find(
@@ -93,7 +107,18 @@ export class ComprarComponent implements OnInit {
     }
     const respuestaCarrito = this._carritoService.eliminarDelCarrito(arregloCarrito);
   }
-  
+
+  finalizarCompra(){
+
+    const arregloGeneralFactura={
+        nombreCajeroFact:this.nombreCajero,
+        nombreComprador:this.nombreUsuario,
+        total:this.totalCompra,
+    };
+    this._factura.guardarFactura(arregloGeneralFactura);
+    this.rutaRevisar=['/menu',this.nombreCajero,'revisar'];
+    this._router.navigate(this.rutaRevisar);
+  }
 
 
 }

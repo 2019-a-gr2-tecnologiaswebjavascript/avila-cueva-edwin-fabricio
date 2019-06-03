@@ -17,6 +17,7 @@ import { PokemonComponent } from './rutas/pokemon/pokemon.component';
 import { RevisarComponent } from './rutas/revisar/revisar.component';
 import { CarritoService } from './servicios/carrito/carrito.service';
 import { BuscarCajeroService } from './servicios/buscar-cajero/buscar-cajero.service';
+import { FacturaService } from './servicios/factura.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { BuscarCajeroService } from './servicios/buscar-cajero/buscar-cajero.ser
     FormsModule
 
   ],
-  providers: [EstaLogeadoService,AuthService,GuardarService,CarritoService,BuscarCajeroService],
+  providers: [EstaLogeadoService,AuthService,GuardarService,CarritoService,BuscarCajeroService,FacturaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
