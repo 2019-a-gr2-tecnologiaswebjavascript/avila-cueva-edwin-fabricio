@@ -108,7 +108,7 @@ export class PokemonComponent implements OnInit {
             numeroPokemon: this.numeroPokemon,
             nombrePokemon:this.nombrePokemon,
             poderEspecialUno: this.poder1,
-            poderEspecialdos:this.poder2,
+            poderEspecialDos:this.poder2,
             fechaCaptura: this.fechaPokemon ,
             nivel: this.nivelPokemon,
             costo: this.costo,

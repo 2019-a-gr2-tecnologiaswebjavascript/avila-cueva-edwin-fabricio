@@ -109,7 +109,6 @@ export class ComprarComponent implements OnInit {
   }
 
   finalizarCompra(){
-
     const arregloGeneralFactura={
         nombreCajeroFact:this.nombreCajero,
         nombreComprador:this.nombreUsuario,

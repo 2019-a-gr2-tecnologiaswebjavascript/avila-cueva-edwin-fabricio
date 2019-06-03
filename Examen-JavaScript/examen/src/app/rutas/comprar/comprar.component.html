@@ -1,8 +1,8 @@
+<!--
 <div class="row">
     <div class="col-md-6">
         <form
         #formularioGeneral = "ngForm" 
-        (submit)="finalizarCompra(false)"
         >
          <div class="form-row">
               <div class="form-group col-md-6">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">FINALIZAR COMPRA</button>
+            <button type="submit" class="btn btn-primary" (click)="finalizarCompra()">FINALIZAR COMPRA</button>
         </form>
     </div>
     <div class="col-md-6">
@@ -57,5 +57,70 @@
           <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
     </div>
   </div>
+</div>
+-->
+
+<h1 class="letra">Carrito de Compras</h1>
+<br>
+<br>
+<div class="container carro">
+  <div class="row">
+      <div class="col-md-6">
+          <form
+          #formularioGeneral = "ngForm" 
+          >
+          <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="nombreUsuario">Nombre</label>
+                  <input type="text" class="form-control" id="nombreUsuario" name="nombre-usuario" placeholder="Ingrese nombre" [(ngModel)]="nombreUsuario">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="cedula">RUC/CÉDULA</label>
+                  <input type="number" class="form-control" id="cedula" name="cedula-usuario" placeholder="RUC/CÉDULA" [(ngModel)]="cedula">
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion-usuario" placeholder="Dirección" [(ngModel)]="direccion">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="telefono">Teléfono</label>
+                    <input type="number" class="form-control" id="telefono"  name="telefono-usuario" placeholder="Teléfono" [(ngModel)]="telefono">
+                  </div>
+                </div>
+              <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" class="form-control" id="correo" name="correo-usuario" placeholder="example@example.com" [(ngModel)]="correo">
+              </div>
+              <div>
+                  <div class="row" *ngFor="let item of arregloCarrito">
+                      <div class="col-md-3">
+                        <p>{{item.nombreEntrenador}}
+                          <button class="btn btn-outline-danger btn-block" (click)="eliminarCarrito(item.nombreEntrenador)">QUITAR</button>
+                        </p>
+                        <p>{{item.cantidad}}</p>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="finalizarCompra()">FINALIZAR COMPRA</button>
+          </form>
+      </div>
+      <div class="col-md-6">
+        <p>NOMBRE CAJERO: {{nombreCajero}}</p>
+        <div class="col-md-2"><label for="total">TOTAL:{{totalCompra}}</label></div> 
+        <div>
+          <div class="row" *ngFor="let entrenador of arregloEntrenadores">
+              <div class="col-md-3">
+                <p>{{entrenador.nombreEntrenador}}
+                  <button class="btn btn-outline-danger btn-block" (click)="listarProductos(entrenador.nombreEntrenador)">VER</button>
+                  <button class="btn btn-outline-danger btn-block" (click)="agregarCarrito(entrenador.nombreEntrenador)">COMPRAR</button>
+                </p>
+              </div>
+          </div>
+            <p [hidden]="ver">{{costoTotal}}</p>
+            <p [hidden]="ver" *ngFor="let pokemon of arregloPokemonPorEntrenador">{{pokemon.nombrePokemon}}</p>
+      </div>
+    </div>
   </div>
-  
+</div>
