@@ -1,5 +1,27 @@
-<button type="submit" class="btn btn-primary"  (click)="mostrarBotonesAdministrar(true)" [hidden]="mostrar">Administrar Grupo</button>
-<button type="submit" class="btn btn-primary" (click)="mostrarBotonesComprar(true)" [disabled]="condicion" [hidden]="mostrar">Comprar</button>
-<button type="submit" class="btn btn-primary" (click)="mostrarBotonesRevisar(true)" [disabled]="condicion" [hidden]="mostrar">Revisar Compras</button>
+<h1 class="letra" [hidden]="mostrar">Menu Principal</h1>
+<div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-secondary btn-block"  (click)="mostrarBotonesAdministrar(true)" [hidden]="mostrar">Administrar Grupo</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-secondary btn-block" (click)="mostrarBotonesComprar(true)" [disabled]="condicion" [hidden]="mostrar">Comprar</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-outline-secondary btn-block" (click)="mostrarBotonesRevisar(true)" [disabled]="condicion" [hidden]="mostrar">Revisar Compras</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5"></div>
+</div>
+
 <router-outlet ></router-outlet>
 <button  class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarMenu()" [disabled]="condicion">MENU</button>

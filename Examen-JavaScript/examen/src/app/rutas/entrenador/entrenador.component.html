@@ -3,7 +3,7 @@
 <div class="formulario-general-buscar" [hidden]="mostrar">
   <div class="row formulario-login-row">
     <div class="col-md-3"></div>
-    <div class="col-md-6 formulario-login">
+    <div class="col-md-6">
         <form  
         #formularioGeneral = "ngForm" 
         (submit)="buscarEntrenador(true)"
@@ -69,22 +69,24 @@
           (submit)="crearEntrenador()"> 
               <div class="form-group">
                 <label for="nombreEntrenador">Nombre Entrenador</label>
-                <input id="nombreEntrenador" type="text" name="nombre-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreEntrenador">
+                <input id="nombreEntrenador" type="text" name="nombre-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreEntrenador" required>
                 
                 <label for="apellidoEntrenador">Apellido Entrenador</label>
-                <input id="apellidoEntrenador" type="text" name="apellido-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="apellidoEntrenador">
+                <input id="apellidoEntrenador" required type="text" name="apellido-entrenador" class="form-control"  placeholder="Ingrese Apellido" [(ngModel)]="apellidoEntrenador">
 
                 <label for="fechaEntrenador">Fecha Nacimiento</label>
-                <input id="fechaEntrenador" type="date" name="fecha-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaEntrenador">
+                <input id="fechaEntrenador" required type="date" name="fecha-entrenador" class="form-control"  placeholder="dd/mm/aaaa" [(ngModel)]="fechaEntrenador">
 
                 <label for="numeroMedallasEntrenador">Numero Medallas</label>
-                <input id="numeroMedallasEntrenado" type="number" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroMedallasEntrenador">
+                <input id="numeroMedallasEntrenado" required type="number" name="numero-medallas-entrenador" class="form-control"  placeholder="Ingrese Medallas" [(ngModel)]="numeroMedallasEntrenador">
 
                 <label for="campeonEntrenador">Campeón Actual?</label><br>
                 <input id="campeonEntrenador" type="radio" name="campeon-entrenador" [(ngModel)]="campeonEntrenador" value="true"> SI<br>
                 <input id="campeonEntrenador" type="radio" name="campeon-entrenador"  [(ngModel)]="campeonEntrenador" value="false"> NO<br>
               </div>
-              <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioEntrenador(false)">CREAR ENTRENADOR</button>
+              <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioEntrenador(false)"
+              [disabled]="formularioEntrenador.invalid"
+              >CREAR ENTRENADOR</button>
             </form>
       </div>
       <div class="col-md-3"></div>

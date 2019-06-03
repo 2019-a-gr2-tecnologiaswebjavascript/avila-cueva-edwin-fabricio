@@ -2,7 +2,7 @@
 <div class="formulario-general-buscar" [hidden]="mostrar">
     <div class="row formulario-login-row">
       <div class="col-md-3"></div>
-      <div class="col-md-6 formulario-login">
+      <div class="col-md-6 ">
           <form  
           #formularioGeneral = "ngForm" 
           (submit)="buscarPokemon(true)"
@@ -73,32 +73,33 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 formulario-login">
             <form  
-            #formularioEntrenador = "ngForm" 
+            #formularioPokemon = "ngForm" 
             (submit)="crearPokemon()"> 
                 <div class="form-group">
                   <label for="numeroPokemon">NUMERO POKEMON</label>
-                  <input id="numeroPokemon" type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="numeroPokemon">
+                  <input id="numeroPokemon" required type="number" name="numero-pokemon" class="form-control"  placeholder="Numero De Pokemon" [(ngModel)]="numeroPokemon">
                   
                   <label for="nombrePokemon">NOMBRE POKEMON</label>
-                  <input id="nombrePokemon" type="text" name="nombre-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombrePokemon">
+                  <input id="nombrePokemon" required type="text" name="nombre-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombrePokemon">
   
                   <label for="poder1">PODER ESPECIAL I</label>
-                  <input id="poder1" type="text" name="poder-1" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="poder1">
+                  <input id="poder1"  required type="text" name="poder-1" class="form-control"  placeholder="Ingrese Poder I" [(ngModel)]="poder1">
   
                   <label for="poder2">PODER ESPECIAL II</label>
-                  <input id="poder2" type="text" name="poder2" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="poder2">
+                  <input id="poder2"  required type="text" name="poder2" class="form-control"  placeholder="Ingrese Poder II" [(ngModel)]="poder2">
   
                   <label for="fechaPokemon">FECHA CAPTURA</label>
-                  <input id="fechaPokemon" type="date" name="fecha-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaPokemon">
+                  <input id="fechaPokemon" required type="date" name="fecha-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="fechaPokemon">
 
                   <label for="nivelPokemon">NIVEL POKEMON</label>
-                  <input id="nivelPokemon" type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nivelPokemon">
+                  <input id="nivelPokemon" required type="number" name="numero-pokemon" class="form-control"  placeholder="Ingrese Nivel" [(ngModel)]="nivelPokemon">
 
                   <label for="costo">Costo</label>
-                  <input id="costo" type="number" name="costo" class="form-control"  placeholder="Ingrese Costo" [(ngModel)]="costo" >
+                  <input id="costo" required type="number" name="costo" class="form-control"  placeholder="Ingrese Costo" [(ngModel)]="costo" >
   
                 </div>
-                <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioPokemon(false)">CREAR POKEMON</button>
+                <button type="submit" class="btn btn-primary" [hidden]="!mostrar" (click)="mostrarFormularioPokemon(false)"
+                [disabled]="formularioPokemon.invalid">CREAR POKEMON</button>
               </form>
         </div>
         <div class="col-md-3"></div>

@@ -1,17 +1,19 @@
 <h1>LOGIN</h1>
 <div class="row formulario-login-row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6 formulario-login">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 formulario-login">
       <form  
       #formularioCajero = "ngForm" 
       (submit)="login()"> 
           <div class="form-group">
             <label for="nombreCajero">Nombre Cajero</label>
-            <input id="nombreCajero" type="text" name="nombre-cajero" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreCajero">
+            <input id="nombreCajero" type="text" name="nombre-cajero" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nombreCajero" #cajeroNombre>
             <small id="mensaje" class="form-text text-muted">Hello, welcome to store pokemon</small>
           </div>
-          <button type="submit" class="btn btn-primary">ENTRAR</button>
+          <button type="submit" class="btn btn-primary"
+          [disabled]="!cajeroNombre.value"
+          >ENTRAR</button>
         </form>
   </div>
-  <div class="col-md-3"></div>
+  <div class="col-md-4"></div>
 </div>

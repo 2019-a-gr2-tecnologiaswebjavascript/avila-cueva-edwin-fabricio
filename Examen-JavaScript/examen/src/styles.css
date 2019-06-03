@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+h1{
+   color: white;
+   font-family: cursive;
+   text-align: center;
+   font-weight: 200;
+}
+
+body{
+   background-image: url("https://images5.alphacoders.com/326/326061.png");
+}
+
+.formulario-login{
+   border: gold solid;
+   font-size: 25px;
+   color: white;
+}
+
+.table{
+   font-size: 15px;
+   color: white;
+}
+
+

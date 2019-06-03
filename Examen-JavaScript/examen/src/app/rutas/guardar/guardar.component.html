@@ -1,18 +1,18 @@
 <h1>GUARDAR</h1>
 <div class="row formulario-login-row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 formulario-login">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 formulario-login">
         <form  
         #formularioCajero = "ngForm" 
         (submit)="guardarNombre()"> 
             <div class="form-group">
               <label for="nuevoNombreCajero">Nombre Cajero</label>
-              <input id="nuevoNombreCajero" type="text" name="nombre-cajero" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nuevoNombreCajero">
+              <input id="nuevoNombreCajero" required type="text" name="nombre-cajero" class="form-control"  placeholder="Ingrese Nombre" [(ngModel)]="nuevoNombreCajero">
               <small id="mensaje" class="form-text text-muted">Hello, welcome to store pokemon</small>
             </div>
             <button type="submit" class="btn btn-primary">GUARDAR</button>
           </form>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-4"></div>
   </div>
   

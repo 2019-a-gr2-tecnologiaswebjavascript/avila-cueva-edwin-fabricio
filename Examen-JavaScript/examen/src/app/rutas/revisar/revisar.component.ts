@@ -15,7 +15,8 @@ export class RevisarComponent implements OnInit {
   arregloBusquedaCajero=[];
   arregloBusquedaUsuario=[];
   esconder=false;
-  ver=false;
+  arregloFilter;
+
 
   ngOnInit() {
     this.arregloFacturas = this._facturaService.arregloFacturas;
@@ -23,20 +24,13 @@ export class RevisarComponent implements OnInit {
 
   buscarNombre(evento){
     this.esconder=evento;
-    this.arregloFacturas.find(
+    const respuestaFilter = this.arregloFacturas.filter(
       (valor)=>{
-        if(valor.nombreCajeroFact === this.nombreABuscar){
-          this.arregloBusquedaCajero.push(valor);
-          console.log('arreglo cajero',this.arregloBusquedaCajero);
-          return this.arregloBusquedaCajero
-        }else if(valor.nombreComprar === this.nombreABuscar){
-          this.arregloBusquedaUsuario.push(valor);
-          console.log('arreglo Usuaoir',this.arregloBusquedaCajero);
-          this.ver=evento;
-          return this.arregloBusquedaUsuario;
+          return valor.nombreCajeroFact === this.nombreABuscar || valor.nombreComprador === this.nombreABuscar;
         }
-      }
     );
+    this.arregloFilter = respuestaFilter;
+    console.log('repuesaFIND',respuestaFilter);
   }
 
 }

@@ -33,12 +33,8 @@
         <td>{{factura.nombreComprador}}</td>
         <td>{{factura.total}}</td>
       </tr>
-      <tr *ngFor="let factura of arregloBusquedaCajero" [hidden]="esconder">
-        <th scope="row">{{factura.nombreCajeroFact}}</th>
-        <td>{{factura.nombreComprador}}</td>
-        <td>{{factura.total}}</td>>
-      </tr>
-      <tr *ngFor="let factura of arregloBusquedaUsuario" [hidden]="!ver">
+
+      <tr *ngFor="let factura of arregloFilter" [hidden]="!esconder">
         <th scope="row">{{factura.nombreCajeroFact}}</th>
         <td>{{factura.nombreComprador}}</td>
         <td>{{factura.total}}</td>>
