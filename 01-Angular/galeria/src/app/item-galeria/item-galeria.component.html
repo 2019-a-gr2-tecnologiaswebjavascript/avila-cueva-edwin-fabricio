@@ -12,7 +12,7 @@ alt="" (click)="cambiarImagen()">
 
 <!--Directiva => *ngFor=(let) el nombre de la iteración en singular (of) nombre del arreglo --> 
 <div *ngFor="let nota of notas">
-    <button (click)="agregarCarrito(nota)">
-        Añadir: {{nota}}
+    <button (click)="agregarCarrito(nota.comida, nota.idComida)">
+        Añadir: {{nota.comida}}
     </button>
 </div>

@@ -1,0 +1,7 @@
+.boton{
+    border: 2px solid orangered;
+    color: white;
+    text-align: center;
+    background-color: darkgoldenrod;
+    min-width: 30px;
+}

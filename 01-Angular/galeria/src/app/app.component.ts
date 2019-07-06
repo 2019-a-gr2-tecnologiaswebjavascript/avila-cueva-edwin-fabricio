@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CarritoService } from './servicios/carrito/carrito.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,18 @@ export class AppComponent {
       nombre:"Papitas",
       descripcion:"A lo bestia",
       notas:[
-        'Hot Dog',
-        'Hamburguesas',
-        'Papitas'
+        {
+          comida:'Hot Dog',
+          idComida:1,
+        },
+        {
+          comida:'Hamburguesas',
+          idComida:2,
+        },
+        {
+          comida:'Papitas',
+          idComida:3,
+        }
       ]
     },
     {
@@ -30,9 +40,18 @@ export class AppComponent {
       nombre:"Carnitas",
       descripcion:"Gorditas",
       notas:[
-        'Papitas',
-        'Empanadas',
-        'Hamburguesas'
+        {
+          comida:'Papitas',
+          idComida:4,
+        },
+        {
+          comida:'Empanadas',
+          idComida:5,
+        },
+        {
+          comida:'Hamburguesas',
+          idComida:6,
+        }
       ]
     },
     {
@@ -40,9 +59,18 @@ export class AppComponent {
       nombre:"Chicas",
       descripcion:"Cheveres",
       notas:[
-        'Motes',
-        'Fritadas',
-        'Papitas'
+        {
+          comida:'Motes',
+          idComida:7,
+        },
+        {
+          comida:'Fritadas',
+          idComida:8,
+        },
+        {
+          comida:'Papitas',
+          idComida:9,
+        }
       ]
     },
   ]
@@ -51,7 +79,8 @@ export class AppComponent {
 
   estaMostrando=false;
 
-  constructor(private readonly _carritoService:CarritoService){
+  constructor(private readonly _carritoService:CarritoService,
+              private readonly _httpclient:HttpClient){
   }
 
 

@@ -1,10 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ItemCarritoCompras } from '../../interfaces/item-carrito-compras';
+import { Producto } from 'src/app/dto/producto';
+import { ProductoHttpService } from '../producto-http.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable()
 export class CarritoService{
+
+    constructor(private readonly _httpProductoService:ProductoHttpService,
+                private readonly httpClient: HttpClient){
+
+    }
     carritoCompras:ItemCarritoCompras[] = [];
     
+    /*
     agregarCarritoDeCompras(itemCarrito:ItemCarritoCompras):ItemCarritoCompras[]{
         const identificador = itemCarrito.valor;
         const identificadorNombreTienda = itemCarrito.nombreTienda;
@@ -37,6 +47,44 @@ export class CarritoService{
         item.cantidad = 1;
         this.carritoCompras.splice(0,0,item);
     }
+    */
+
+   agregarCarritoDeCompras(itemCarrito:Producto){
+        const buscarPorId$ = this._httpProductoService.buscarPorId(itemCarrito.id);
+        buscarPorId$
+                .subscribe(
+                    (dato)=>{
+                        dato.cantidad++;
+                        const productoActulizar = this._httpProductoService.actualizar(dato.id,dato);
+                        productoActulizar.subscribe(
+                            (dato)=>{
+                                console.log('Se actualizo exitosamente');
+                            },
+                            (error)=>{
+                                console.log('Hubo un error al actualizar');
+                            }
+                        )
+                    },
+                    (error)=>{
+                        itemCarrito.cantidad = 1 ;
+                        const crearProducto$ = this._httpProductoService.crear(itemCarrito);
+                        crearProducto$.subscribe(
+                            (dato)=>{
+                                console.log('Se almaceno en la Base de datos');
+                            },
+                            (error)=>{
+                                console.log('Hubo un error al ingresar el producto');
+                            }
+                        )
+                    }
+                )
+   }
+
+
+
+
+
+
 }
 
 

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
 import {ItemCarritoCompras} from '../interfaces/item-carrito-compras'
+import { HttpClient } from '@angular/common/http';
+import { ProductoHttpService } from '../servicios/producto-http.service';
+import { Producto } from '../dto/producto';
 
 @Component({
   selector: 'app-item-galeria',
@@ -10,6 +13,8 @@ import {ItemCarritoCompras} from '../interfaces/item-carrito-compras'
 export class ItemGaleriaComponent implements OnInit , OnDestroy {
 
   title = 'Licoreria';
+
+  
 
   @Input()
   titulo;
@@ -67,13 +72,28 @@ export class ItemGaleriaComponent implements OnInit , OnDestroy {
   ngOnInit() {
     console.log("'Empezo'");
     //console.log(this._carritoService.carritoCompras);
+
+
+
+
   }
   
   ngOnDestroy() {
     console.log("'Termino'");
   }
 
-  agregarCarrito(valorCarrito:string){
+  
+  agregarCarrito(valorCarrito:string, idComida:number){
+ 
+    const itemCarrito:Producto={
+      id: idComida,
+      valor:valorCarrito,
+      nombreTienda: this.titulo,
+      fechaCompra: new Date()
+    }
+    const respuestaCarrito = this._carritoService.agregarCarritoDeCompras(itemCarrito);
+  }
+  /*agregarCarrito(valorCarrito:string){
     const itemCarrito:ItemCarritoCompras={
       valor:valorCarrito,
       nombreTienda: this.titulo,
@@ -83,7 +103,7 @@ export class ItemGaleriaComponent implements OnInit , OnDestroy {
     //this._carritoService.carritoCompras.splice(0,0,itemCarrito);
     //this._carritoService.agregarItemCarrito(itemCarrito);
     console.log (respuestaCarrito);
-  }
+  }*/
 
 }
 
