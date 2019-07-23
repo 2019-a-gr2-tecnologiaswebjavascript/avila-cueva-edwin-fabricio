@@ -5,6 +5,8 @@ import { UsuarioHttpService } from './servicios/http/usuario-http.service';
 import { ProductoHttpService } from './servicios/http/producto-http.service';
 import { ProductoUsuarioHttpService } from './servicios/http/producto-usuario-http.service';
 
+declare var io: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,7 @@ import { ProductoUsuarioHttpService } from './servicios/http/producto-usuario-ht
 export class AppComponent implements OnInit {
   title = 'tienda-frontend';
   archivo: File;
+  temperatura: any [];
 
   constructor (private readonly _httpClient:HttpClient,
               private readonly _usuarioHttpService:UsuarioHttpService,
@@ -22,6 +25,14 @@ export class AppComponent implements OnInit {
   } 
   //Correr codigo seguro 
   ngOnInit(){
+
+    io.socket.get(
+      '/temperatura',
+      (aregloTemperaturas: any [])=>{
+        this.temperatura = aregloTemperaturas;
+      }
+    )
+
     ///////////////////////////////////////////////CREAR//////////////////////////////////////
     const usuarioCrear$ = this._usuarioHttpService
           .crear({

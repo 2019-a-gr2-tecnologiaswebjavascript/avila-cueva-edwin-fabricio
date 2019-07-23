@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="dependencies/sails.io.js"></script>
+    <script>
+        const socketConexion = io.sails.connect();
+        //io.sails.url = 'https://192.168.0.120:1337'; necesitamos habilitar en el angular 
+        /*socketConexion.on( //Evento llamado 'connect'
+            'connect', //Esta función se ejecuta siempre que se emita el evento 'connect'
+            () => {
+                console.log("Socket Conectado!");
+                socketConexion.post ('/temperatura',
+                {
+                    medicion: 12.3223
+                },
+                (respuestaTemperatura)=>{
+                    console.log(respuestaTemperatura);
+                });
+            }
+        );
+
+        socketConexion.on( //Evento llamado 'connect'
+            'disconnect', //Esta función se ejecuta siempre que se emita el evento 'connect'
+            () => {
+                console.log("Socket Desconectado!");
+            }
+        );*/
+        io.socket.post(
+            '/temperatura', // url
+            {  // datos
+                medicion:12.094
+            }, 
+             (respuestaTemperatura) => { // Respuesta
+                 console.log('Respuesta:', respuestaTemperatura);
+        });        
+        io.socket.on(
+            'temperatura',  // Nombre del Modelo (Temperatura)
+                (mensaje) => { 
+                    console.log("Mensaje: ", mensaje);
+        });
+    </script>
+</body>
+</html>
